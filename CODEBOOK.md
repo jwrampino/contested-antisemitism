@@ -28,58 +28,57 @@ As each definition of antisemitism provides unique guidelines and examples as to
    - E2ALLEGATION "Making mendacious ... allegations about Jews as such"
    - E2DEHUMANIZATION "dehumanizing ... allegations about Jews as such"
    - E2DEMONIZE "demonizing ... allegations about Jews as such"
-   - E2STEREOTYPEALLEGATION "stereotypical allegations about Jews as such"
+   - E2STEREOTYPE "stereotypical allegations about Jews as such"
    - E2COLLECTIVEAGENDA "the power of Jews as collective"
-   - E2WORLDCONSPIRACY "the myth about a world Jewish conspiracy"
+   - E2CONSPIRACY "the myth about a world Jewish conspiracy"
    - E2CONTROLMEDIA "Jews controlling the media"
    - E2CONTROLECONOMY "Jews controlling the economy"
    - E2CONTROLGOV "Jews controlling the government"
-   - E2CONTROLINSTITUTION "Jews controlling other societal institutions."
+   - E2CONTROLOTHER "Jews controlling other societal institutions."
 
    2.3 E3
    - E3COLLECTIVEBLAME "Accusing Jews as a people of being responsible for real or imagined wrongdoing committed by a single Jewish person or group, or even for acts committed by non-Jews."
+
    2.4 E4
    - E4HOLOCAUSTDENIAL "Denying the fact ... of the genocide of the Jewish people"
-   - E4HOLOCAUSTSCOPE "Denying the ... scope ... of the genocide of the Jewish people"
-   - E4HOLOCAUSTMECHANISMS "Denying the ... mechanisms (e.g. gas chambers) ... of the genocide of the Jewish people"
+   - E4HOLOCAUSTMINIMIZE "Denying the ... scope ... of the genocide of the Jewish people"
+   - E4HOLOCAUSTMECHANISM "Denying the ... mechanisms (e.g. gas chambers) ... of the genocide of the Jewish people"
    - E4HOLOCAUSTINTENT "Denying the ... intentionality of the genocide of the Jewish people"
-   - E4HOLOCAUSTFRAME "at the hands of National Socialist Germany and its supporters and accomplices during World War II (the Holocaust)."
 
    2.5 E5
-   - E5HOLOCAUSTINVENTED "Accusing the Jews as a people, or Israel as a state, of inventing ... the Holocaust."
-   - E5HOLOCAUSTEXAGGERATED "Accusing the Jews as a people, or Israel as a state, of ... exaggerating the Holocaust."
+   - E5HOLOCAUSTINVENT "Accusing the Jews as a people, or Israel as a state, of inventing ... the Holocaust."
+   - E5HOLOCAUSTEXAGGERATE "Accusing the Jews as a people, or Israel as a state, of ... exaggerating the Holocaust."
 
    2.6 E6
-   - E6DUALLOYALTY "Accusing Jewish citizens of being more loyal to Israel"
-   - E6GLOBALJEWISHLOYALTY "or to the alleged priorities of Jews worldwide"
-   - E6DISLOYALNATION "than to the interests of their own nations."
+   - E6ISRAELFIFTHCOLUMN "Accusing Jewish citizens of being more loyal to Israel"
+   - E6GLOBALFIFTHCOLUMN "or to the alleged priorities of Jews worldwide"
 
    2.7 E7
-   - E7DENYSELFDETERMINATION "Denying the Jewish people their right to self-determination"
-   - E7RACISTENDEAVOR "by claiming that the existence of a State of Israel is a racist endeavor."
+   - E7JEWISHRIGHTS "Denying the Jewish people their right to self-determination"
+   - E7ISRAELRACIST "claiming that the existence of a State of Israel is a racist endeavor."
 
    2.8 E8
    - E8DOUBLESTANDARD "Applying double standards"
    - E8UNIQUEDEMAND "requiring of it a behavior not expected or demanded of any other democratic nation."
 
    2.9 E9
-   - E9CLASSICSYMBOLS "Using the symbols and images associated with classic antisemitism"
+   - E9CLASSICSYMBOL "Using the symbols and images associated with classic antisemitism"
    - E9JESUSKILLING "claims of Jews killing Jesus"
    - E9BLOODLIBEL "blood libel"
-   - E9CHARACTERIZEISRAEL "to characterize Israel or Israelis."
+   - E9CHARACTERIZEISRAEL "Using the symbols and images associated with classic antisemitism (e.g., claims of Jews killing Jesus or blood libel) to characterize Israel or Israelis."
 
    2.10 E10
-   - E10NAZICOMPARISON "Drawing comparisons of contemporary Israeli policy to that of the Nazis."
+   - E10ISRAELNAZI "Drawing comparisons of contemporary Israeli policy to that of the Nazis."
 
    2.11 E11
-   - E11COLLECTIVEISRAELBLAME "Holding Jews collectively responsible for actions of the state of Israel."
+   - E11COLLECTIVEBLAME "Holding Jews collectively responsible for actions of the state of Israel."
 
 3. Additional Enforcement (YES Codes)
 
    3.1 E12
-   - E12CRIMINALACTS "Antisemitic acts are criminal when they are so defined by law"
-   - E12HOLOCAUSTDENIALLAW "for example, denial of the Holocaust"
-   - E12MATERIALSDISTRIBUTION "or distribution of antisemitic materials in some countries."
+   - E12CRIMINAL "Antisemitic acts are criminal when they are so defined by law"
+   - E12HOLOCAUSTDENIAL "for example, denial of the Holocaust"
+   - E12MATERIAL "or distribution of antisemitic materials in some countries."
 
    3.2 E13
    - E13TARGETSELECTION "Criminal acts are antisemitic when the targets of attacks ... are selected because they are, or are perceived to be, Jewish or linked to Jews."
@@ -93,6 +92,8 @@ As each definition of antisemitism provides unique guidelines and examples as to
    3.3 E14
    - E14DISCRIMINATION "Antisemitic discrimination is the denial to Jews of opportunities or services available to others"
    - E14ILLEGAL "and is illegal in many countries."
+
+4. NO Code: Text does not fit the IHRA working definition.
 
 ## [Jerusalem Declaration on Antisemitism](https://jerusalemdeclaration.org/#jda)
 
@@ -153,9 +154,9 @@ As each definition of antisemitism provides unique guidelines and examples as to
    1.5 A5
    - A5HOLOCAUSTDENIAL
      "Denying or minimizing the Holocaust by claiming that the deliberate Nazi genocide of the Jews did not take place"
-   - A5CAMPS
+   - A5HOLOCAUSTMECHANISM
      "there were no extermination camps or gas chambers"
-   - A5MINIMIZATION
+   - A5HOLOCAUSTMINIMIZE
      "the number of victims was a fraction of the actual total"
 
 2. B. Israel and Palestine: examples that, on the face of it, are antisemitic (YES Codes)
