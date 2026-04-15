@@ -1,6 +1,6 @@
 # Definition Codebook
 
-As each definition of antisemitism provides unique guidelines and examples as to what constitutes antisemitism, the dataset is labeled to identify whether each text is antisemitic under the definition (YES/NO) and if YES, what specific components of the definition apply to the text.
+As each definition of antisemitism provides unique guidelines and examples as to what constitutes antisemitism, the dataset is labeled to identify whether each text is antisemitic under the definition (YES/NO) and what specific components of the definition apply to the text.
 
 ## IHRA
 
