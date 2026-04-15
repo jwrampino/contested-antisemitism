@@ -2,11 +2,99 @@
 
 As each definition of antisemitism provides unique guidelines and examples as to what constitutes antisemitism, the dataset is labeled to identify whether each text is antisemitic under the definition (YES/NO) and what specific components of the definition apply to the text.
 
-## IHRA
+## [International Holocaust Rememberance Alliance (IHRA) Working Definition](https://holocaustremembrance.com/resources/working-definition-antisemitism)
 
+1. Definition (YES Codes)
 
+   1.1 D1
+   - D1PERCEPTION "Antisemitism is a certain perception of Jews"
+   - D1HATE "which may be expressed as hatred toward Jews."
+   - D1MANIFEST "Rhetorical and physical manifestations of antisemitism are directed toward Jewish or non-Jewish individuals and/or their property, toward Jewish community institutions and religious facilities."
 
-## JDA
+   1.2 D2
+   - D2ISRAELTARGET "Manifestations might include the targeting of the state of Israel, conceived as a Jewish collectivity."
+   - D2DOUBLESTANDARD "criticism of Israel similar to that leveled against any other country cannot be regarded as antisemitic."
+   - D2CONSPIRACY "Antisemitism frequently charges Jews with conspiring to harm humanity"
+   - D2BLAME "it is often used to blame Jews for 'why things go wrong.'"
+   - D2STEREOTYPE "employs sinister stereotypes and negative character traits."
+
+2. Contemporary examples of antisemitism (YES Codes)
+
+   2.1 E1
+   - E1VIOLENCE "Calling for, aiding, or justifying the killing or harming of Jews"
+   - E1RADICAL "in the name of a radical ideology or an extremist view of religion."
+
+   2.2 E2
+   - E2ALLEGATION "Making mendacious ... allegations about Jews as such"
+   - E2DEHUMANIZATION "dehumanizing ... allegations about Jews as such"
+   - E2DEMONIZE "demonizing ... allegations about Jews as such"
+   - E2STEREOTYPEALLEGATION "stereotypical allegations about Jews as such"
+   - E2COLLECTIVEAGENDA "the power of Jews as collective"
+   - E2WORLDCONSPIRACY "the myth about a world Jewish conspiracy"
+   - E2CONTROLMEDIA "Jews controlling the media"
+   - E2CONTROLECONOMY "Jews controlling the economy"
+   - E2CONTROLGOV "Jews controlling the government"
+   - E2CONTROLINSTITUTION "Jews controlling other societal institutions."
+
+   2.3 E3
+   - E3COLLECTIVEBLAME "Accusing Jews as a people of being responsible for real or imagined wrongdoing committed by a single Jewish person or group, or even for acts committed by non-Jews."
+   2.4 E4
+   - E4HOLOCAUSTDENIAL "Denying the fact ... of the genocide of the Jewish people"
+   - E4HOLOCAUSTSCOPE "Denying the ... scope ... of the genocide of the Jewish people"
+   - E4HOLOCAUSTMECHANISMS "Denying the ... mechanisms (e.g. gas chambers) ... of the genocide of the Jewish people"
+   - E4HOLOCAUSTINTENT "Denying the ... intentionality of the genocide of the Jewish people"
+   - E4HOLOCAUSTFRAME "at the hands of National Socialist Germany and its supporters and accomplices during World War II (the Holocaust)."
+
+   2.5 E5
+   - E5HOLOCAUSTINVENTED "Accusing the Jews as a people, or Israel as a state, of inventing ... the Holocaust."
+   - E5HOLOCAUSTEXAGGERATED "Accusing the Jews as a people, or Israel as a state, of ... exaggerating the Holocaust."
+
+   2.6 E6
+   - E6DUALLOYALTY "Accusing Jewish citizens of being more loyal to Israel"
+   - E6GLOBALJEWISHLOYALTY "or to the alleged priorities of Jews worldwide"
+   - E6DISLOYALNATION "than to the interests of their own nations."
+
+   2.7 E7
+   - E7DENYSELFDETERMINATION "Denying the Jewish people their right to self-determination"
+   - E7RACISTENDEAVOR "by claiming that the existence of a State of Israel is a racist endeavor."
+
+   2.8 E8
+   - E8DOUBLESTANDARD "Applying double standards"
+   - E8UNIQUEDEMAND "requiring of it a behavior not expected or demanded of any other democratic nation."
+
+   2.9 E9
+   - E9CLASSICSYMBOLS "Using the symbols and images associated with classic antisemitism"
+   - E9JESUSKILLING "claims of Jews killing Jesus"
+   - E9BLOODLIBEL "blood libel"
+   - E9CHARACTERIZEISRAEL "to characterize Israel or Israelis."
+
+   2.10 E10
+   - E10NAZICOMPARISON "Drawing comparisons of contemporary Israeli policy to that of the Nazis."
+
+   2.11 E11
+   - E11COLLECTIVEISRAELBLAME "Holding Jews collectively responsible for actions of the state of Israel."
+
+3. Additional Enforcement (YES Codes)
+
+   3.1 E12
+   - E12CRIMINALACTS "Antisemitic acts are criminal when they are so defined by law"
+   - E12HOLOCAUSTDENIALLAW "for example, denial of the Holocaust"
+   - E12MATERIALSDISTRIBUTION "or distribution of antisemitic materials in some countries."
+
+   3.2 E13
+   - E13TARGETSELECTION "Criminal acts are antisemitic when the targets of attacks ... are selected because they are, or are perceived to be, Jewish or linked to Jews."
+   - E13PEOPLETARGETED "whether they are people"
+   - E13PROPERTYTARGETED "or property"
+   - E13BUILDINGS "such as buildings"
+   - E13SCHOOLS "schools"
+   - E13WORSHIP "places of worship"
+   - E13CEMETERIES "cemeteries"
+
+   3.3 E14
+   - E14DISCRIMINATION "Antisemitic discrimination is the denial to Jews of opportunities or services available to others"
+   - E14ILLEGAL "and is illegal in many countries."
+
+## [Jerusalem Declaration on Antisemitism](https://jerusalemdeclaration.org/#jda)
 
 1. A. General (YES Codes)
 
