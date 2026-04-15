@@ -1,4 +1,4 @@
-# antisemitism_classification
+# antisemitism_classifier
 Designing an ML Classification Method to Identify Evolving and Complex Expressions of Antisemitism in Online Discourse
 
 ## Project Description
