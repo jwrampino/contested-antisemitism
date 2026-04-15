@@ -87,7 +87,7 @@ As each definition of antisemitism provides unique guidelines and examples as to
      "Requiring people, because they are Jewish, publicly to condemn Israel or Zionism"
 
    2.4 B9
-   - B9IRAELFIFTHCOLUMN
+   - B9ISRAELFIFTHCOLUMN
      "Assuming that non-Israeli Jews, simply because they are Jews, are necessarily more loyal to Israel than to their own countries."
 
    2.5 B10
@@ -134,8 +134,6 @@ As each definition of antisemitism provides unique guidelines and examples as to
 
    3.5 C15
    - C15REASONABLE
-     "Political speech does not have to be measured, proportional, tempered, or reasonable"
+     "Political speech does not have to be measured, proportional, tempered, or reasonable... the line between antisemitic and non-antisemitic speech is different from the line between unreasonable and reasonable speech.""
    - C15DOUBLESTANDARD
      "Criticism that some may see as excessive or contentious, or as reflecting a \"double standard\", is not, in and of itself, antisemitic."
-   - C15LINEDISTINCTION
-     "the line between antisemitic and non-antisemitic speech is different from the line between unreasonable and reasonable speech."
