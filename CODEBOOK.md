@@ -77,13 +77,13 @@ As each definition of antisemitism provides unique guidelines and examples as to
 
    3.1 E12
    - E12CRIMINAL "Antisemitic acts are criminal when they are so defined by law"
-   - E12HOLOCAUSTDENIAL "for example, denial of the Holocaust"
-   - E12MATERIAL "or distribution of antisemitic materials in some countries."
+   - E12CRIMINALDENIAL "for example, denial of the Holocaust"
+   - E12CRIMINALMATERIAL "or distribution of antisemitic materials in some countries."
 
    3.2 E13
-   - E13TARGETSELECTION "Criminal acts are antisemitic when the targets of attacks ... are selected because they are, or are perceived to be, Jewish or linked to Jews."
-   - E13PEOPLETARGETED "whether they are people"
-   - E13PROPERTYTARGETED "or property"
+   - E13TARGET "Criminal acts are antisemitic when the targets of attacks ... are selected because they are, or are perceived to be, Jewish or linked to Jews."
+   - E13PEOPLE "whether they are people"
+   - E13PROPERTY "or property"
    - E13BUILDINGS "such as buildings"
    - E13SCHOOLS "schools"
    - E13WORSHIP "places of worship"
@@ -91,7 +91,6 @@ As each definition of antisemitism provides unique guidelines and examples as to
 
    3.3 E14
    - E14DISCRIMINATION "Antisemitic discrimination is the denial to Jews of opportunities or services available to others"
-   - E14ILLEGAL "and is illegal in many countries."
 
 4. NO Code: Text does not fit the IHRA working definition.
 
