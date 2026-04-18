@@ -1,6 +1,6 @@
 # Definition Codebook
 
-As each definition of antisemitism provides unique guidelines and examples as to what constitutes antisemitism, the dataset is labeled to identify whether each text is antisemitic under the definition (YES/NO) and what specific components of the definition apply to the text.
+As each definition of antisemitism provides unique guidelines and examples as to what constitutes antisemitism, the dataset is labeled to identify what specific components of the definition may apply to a given text. These codes are returned as 0 (Not Applicable), 1 (Explicitly Applicable), 2 (Implicitly Applicable), or 3 (Ambiguous).
 
 ## [International Holocaust Rememberance Alliance (IHRA) Working Definition](https://holocaustremembrance.com/resources/working-definition-antisemitism)
 
@@ -92,7 +92,7 @@ As each definition of antisemitism provides unique guidelines and examples as to
    3.3 E14
    - E14DISCRIMINATION "Antisemitic discrimination is the denial to Jews of opportunities or services available to others"
 
-4. NO Code: Text does not fit the IHRA working definition.
+4. NOOTHER: Text is not antisemitic and does not fit the IHRA working definition.
 
 ## [Jerusalem Declaration on Antisemitism](https://jerusalemdeclaration.org/#jda)
 
@@ -225,3 +225,5 @@ As each definition of antisemitism provides unique guidelines and examples as to
      "Political speech does not have to be measured, proportional, tempered, or reasonable... the line between antisemitic and non-antisemitic speech is different from the line between unreasonable and reasonable speech.""
    - C15DOUBLESTANDARD
      "Criticism that some may see as excessive or contentious, or as reflecting a \"double standard\", is not, in and of itself, antisemitic."
+
+4. NOOTHER: Text is not antisemitic and does not fit the JDA definition.
