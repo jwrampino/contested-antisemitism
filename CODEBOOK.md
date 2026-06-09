@@ -1,6 +1,17 @@
 # Definition Codebook
 
-As each definition of antisemitism provides unique guidelines and examples as to what constitutes antisemitism, the dataset is labeled to identify what specific components of the definition may apply to a given text. These codes are returned as 0 (Not Applicable), 1 (Explicitly Applicable), 2 (Implicitly Applicable), or 3 (Ambiguous).
+As each definition of antisemitism provides unique guidelines and examples as to what constitutes antisemitism, the dataset is labeled to identify what specific components of the definition may apply to a given text. These codes are returned as 0 (Not Applicable), 1 (Explicitly Applicable), 2 (Implicitly Applicable Obfuscation), 3 (Implicitly Applicable Contextual), 4 (Implicitly Applicable Compounded), or 5 (Ambiguous).
+
+## Response Scale 
+
+| Code | Name | Description | Example | Explanation |
+|---|---|---|---|---|
+| 0 | Not Applicable | The code is unambiguously inapplicable to the text. | "Political polarization is growing in the US." or "Pizza is my favorite." | The text is completely unrelated to the code. |
+| 1 | Explicitly Applicable | There is direct and unambiguous evidence the code applies to the text. The text does not attempt to obfuscate its stance, and the code applies stably independent of context. | "I hate Jews." | The text directly states its stance without any ambiguity. |
+| 2 | Implicitly Applicable Obfuscation | There is strong evidence that the code applies to the text. The text attempts to obfuscate its stance using dogwhistles or coded language. | "(((They))) are always responsible." | The triple parenthetical indicates an unambiguous reference to Jewish people, and is intended to be plausibly neutral discourse to lay people. |
+| 3 | Implicitly Applicable Contextual | There is strong evidence that the code applies to the text. The code may or may not apply to the text, but only clearly applies given the larger context the text is situated within. | "From the river to the sea." | Does not attempt to obfuscate its stance, but can signal several non-exclusive stances such that the intended meaning can only be delineated in-context. |
+| 4 | Implicitly Applicable Compounded | There is strong evidence that the code applies to the text. The text both (1) attempts to obfuscate its stance using dogwhistles or coded language, *and* (2) only clearly applies given the larger context the text is situated within. | "271k" | In reference to the conspiracy theory that only 271,000 Jews were murdered in the Holocaust, or that these actions did not target Jews as-such. The number itself is neutral, but communicates a particular meaning in relevant discussions, and is intended to be plausibly neutral discourse to lay people. |
+| 5 | Ambiguous | It is unclear, even given context, whether the code applies to the text. | "They have always controlled the narrative." | Even within the larger thread the text is situated within, and other texts by the same author, it is genuinely ambiguous and cannot even be inferred who the author is referring to. If in-context the author has made clear who 'they' are, or it can be reasonably inferred the author is purposefully obfuscating who 'they' are, the code is not ambiguous. Vague language alone does not mean a text is ambiguous. |
 
 ## Code Map
 
@@ -130,7 +141,7 @@ As each definition of antisemitism provides unique guidelines and examples as to
    3.3 E14
    - E14DISCRIMINATION "Antisemitic discrimination is the denial to Jews of opportunities or services available to others"
 
-4. NOOTHER_I: Text is not antisemitic and does not fit the IHRA working definition.
+4. NOOTHER_I: Text is not antisemitic under the IHRA definition and does not fit the IHRA working definition.
 
 ## [The Nexus Document](https://nexusproject.us/nexus-resources/the-nexus-document/)
 
@@ -207,7 +218,7 @@ As each definition of antisemitism provides unique guidelines and examples as to
    3.5 N18
    - N18DISPROPORTIONATE "Paying disproportionate attention to Israel and treating Israel differently than other countries is not prima facie proof of antisemitism."
 
-4. NOOTHER_N: Text is not antisemitic and does not fit the Nexus Document definition.
+4. NOOTHER_N: Text is not antisemitic under the Nexus Document definition and does not fit the Nexus Document definition.
 
 ## [Jerusalem Declaration on Antisemitism](https://jerusalemdeclaration.org/#jda)
 
@@ -341,4 +352,4 @@ As each definition of antisemitism provides unique guidelines and examples as to
    - C15DOUBLESTANDARD
      "Criticism that some may see as excessive or contentious, or as reflecting a \"double standard\", is not, in and of itself, antisemitic."
 
-4. NOOTHER_J: Text is not antisemitic and does not fit the JDA definition.
+4. NOOTHER_J: Text is not antisemitic under the JDA definition and does not fit the JDA definition.
