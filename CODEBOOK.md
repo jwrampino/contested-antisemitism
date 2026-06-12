@@ -1,55 +1,58 @@
 # Definition Codebook
 
-As each definition of antisemitism provides unique guidelines and examples as to what constitutes antisemitism, the dataset is labeled to identify what specific components of the definition may apply to a given text. These codes are returned as 0 (Not Applicable), 1 (Explicitly Applicable), 2 (Implicitly Applicable Obfuscation), 3 (Implicitly Applicable Contextual), 4 (Implicitly Applicable Compounded), or 5 (Ambiguous).
+As each definition of antisemitism provides unique guidelines and examples as to what constitutes antisemitism, the dataset is labeled to identify what specific components of the definition may apply to a given text. Each label is returned as  either `N` (Not Applicable), `E` (Explicitly Applicable), `O` (Implicitly Applicable: Obfuscation), `C` (Implicitly Applicable: Contextual), `I` (Implicitly Applicable: Compounded), or `A` (Ambiguous).
 
-## Response Scale 
+## Response Index 
 
 | Code | Name | Description | Example | Explanation |
 |---|---|---|---|---|
-| 0 | Not Applicable | The code is unambiguously inapplicable to the text. | "Political polarization is growing in the US." or "Pizza is my favorite." | The text is completely unrelated to the code. |
-| 1 | Explicitly Applicable | There is direct and unambiguous evidence the code applies to the text. The text does not attempt to obfuscate its stance, and the code applies stably independent of context. | "I hate Jews." | The text directly states its stance without any ambiguity. |
-| 2 | Implicitly Applicable Obfuscation | There is strong evidence that the code applies to the text. The text attempts to obfuscate its stance using dogwhistles or coded language. | "(((They))) are always responsible." | The triple parenthetical indicates an unambiguous reference to Jewish people, and is intended to be plausibly neutral discourse to lay people. |
-| 3 | Implicitly Applicable Contextual | There is strong evidence that the code applies to the text. The code may or may not apply to the text, but only clearly applies given the larger context the text is situated within. | "From the river to the sea." | Does not attempt to obfuscate its stance, but can signal several non-exclusive stances such that the intended meaning can only be delineated in-context. |
-| 4 | Implicitly Applicable Compounded | There is strong evidence that the code applies to the text. The text both (1) attempts to obfuscate its stance using dogwhistles or coded language, *and* (2) only clearly applies given the larger context the text is situated within. | "271k" | In reference to the conspiracy theory that only 271,000 Jews were murdered in the Holocaust, or that these actions did not target Jews as-such. The number itself is neutral, but communicates a particular meaning in relevant discussions, and is intended to be plausibly neutral discourse to lay people. |
-| 5 | Ambiguous | It is unclear, even given context, whether the code applies to the text. | "They have always controlled the narrative." | Even within the larger thread the text is situated within, and other texts by the same author, it is genuinely ambiguous and cannot even be inferred who the author is referring to. If in-context the author has made clear who 'they' are, or it can be reasonably inferred the author is purposefully obfuscating who 'they' are, the code is not ambiguous. Vague language alone does not mean a text is ambiguous. |
+| N | Not Applicable | The code is unambiguously inapplicable to the text. | "Political polarization is growing in the US." or "Pizza is my favorite." | The text is completely unrelated to the code. |
+| E | Explicitly Applicable | There is direct and unambiguous evidence the code applies to the text. The text does not attempt to obfuscate its stance, and the code applies stably independent of context. | "I hate Jews." | The text directly states its stance without any ambiguity. |
+| O | Implicitly Applicable: Obfuscation | There is strong evidence that the code applies to the text. The text attempts to obfuscate its stance using dogwhistles or coded language. | "(((They))) are always responsible." | The triple parenthetical indicates an unambiguous reference to Jewish people, and is intended to be plausibly neutral discourse to lay people. |
+| C | Implicitly Applicable: Contextual | There is strong evidence that the code applies to the text. The code may or may not apply to the text, but only clearly applies given the larger context the text is situated within. | "From the river to the sea." | Does not attempt to obfuscate its stance, but can signal several non-exclusive stances such that the intended meaning can only be delineated in-context. |
+| I | Implicitly Applicable: Compounded | There is strong evidence that the code applies to the text. The text both (1) attempts to obfuscate its stance using dogwhistles or coded language, *and* (2) only clearly applies given the larger context the text is situated within. | "271k" | In reference to the conspiracy theory that only 271,000 Jews were murdered in the Holocaust, or that these actions did not target Jews as-such. The number itself is neutral, but communicates a particular meaning in relevant discussions, and is intended to be plausibly neutral discourse to lay people. |
+| A | Ambiguous | It is unclear, even given context, whether the code applies to the text. | "They have always controlled the narrative." | Even within the larger thread the text is situated within, and other texts by the same author, it is genuinely ambiguous and cannot even be inferred who the author is referring to. If in-context the author has made clear who 'they' are, or it can be reasonably inferred the author is purposefully obfuscating who 'they' are, the code is not ambiguous. Vague language alone does not mean a text is ambiguous. |
 
 ## Code Map
 
+### YES CODES
 | Concept | IHRA | Nexus | JDA |
 |---|---|---|---|
-| Collective blame | E11COLLECTIVEBLAME | N4COLLECTIVEBLAME | B7COLLECTIVEBLAME |
-| Collective guilt via symbols/images | — | N8COLLECTIVEGUILT | B6ISRAELCARICATURE |
-| Conspiracy / hidden Jewish power | D2CONSPIRACY, E2CONSPIRACY | N3CONSPIRACY, N5HIDDENCONSPIRACY | A2CONSPIRACY, A2HIDDEN |
+| Collective blame | D2COLLECTIVEBLAME, E11COLLECTIVEBLAME | N4COLLECTIVEBLAME, N5HIDDENCONSPIRACY, N5ISRAELHAND, N8COLLECTIVEGUILT | B7COLLECTIVEBLAME, B7ISRAELAGENT |
+| Conspiracy and hidden agendas | D2CONSPIRACY, E2CONSPIRACY, E2COLLECTIVEPOWER | N3CONSPIRACY, N5HIDDENCONSPIRACY | A2CONSPIRACY, A2HIDDENPOWER, A2COLLECTIVEAGENDA |
 | Control of media | E2CONTROLMEDIA | N3CONTROLMEDIA | A2CONTROLMEDIA |
 | Control of economy | E2CONTROLECONOMY | N3CONTROLECONOMY | — |
 | Control of government | E2CONTROLGOV | N3CONTROLGOV | A2CONTROLGOV |
 | Control of other institutions | E2CONTROLOTHER | N3CONTROLOTHER | — |
-| Double standard applied to Israel | D2DOUBLESTANDARD, E8DOUBLESTANDARD | N13DOUBLESTANDARD | C15DOUBLESTANDARD |
-| Loyalty / fifth column trope | E6ISRAELFIFTHCOLUMN, E6GLOBALFIFTHCOLUMN | N6LOYALTYDOUBT | A2FIFTHCOLUMN, B9ISRAELFIFTHCOLUMN |
-| Denial of Jewish self-determination | E7JEWISHRIGHTS | N11SELFDETERMINATION, N12ADVOCATEDENY, N12SELFDETERMINATION | B10JEWISHRIGHTS |
+| Double standard applied to Israel | E8DOUBLESTANDARD | N13DOUBLESTANDARD | — |
+| Dual loyalty trope | E6ISRAELLOYALTY, E6GLOBALLOYALTY | N6LOYALTY | A2LOYALTY, A3UNPATRIOTIC, B9ISRAELLOYALTY |
+| Denial of Jewish self-determination | E7JEWISHRIGHTS | N11SELFDETERMINATION, N12JEWISHRIGHTSDEFINE, N12SELFDETERMINATION, N12JEWISHRIGHTS | B10JEWISHRIGHTS |
 | Israel as racist endeavor | E7ISRAELRACIST | — | — |
-| Holocaust denial | E4HOLOCAUSTDENIAL | — | A5HOLOCAUSTDENIAL |
-| Holocaust minimization | E4HOLOCAUSTMINIMIZE | — | A5HOLOCAUSTMINIMIZE |
-| Holocaust mechanism denial | E4HOLOCAUSTMECHANISM | — | A5HOLOCAUSTMECHANISM |
-| Holocaust exaggeration accusation | E5HOLOCAUSTEXAGGERATE | — | — |
+| Holocaust denial | E4HOLOCAUSTDENIAL, E5HOLOCAUSTINVENT | — | A5HOLOCAUSTDENIAL |
+| Holocaust minimization | E4HOLOCAUSTMINIMIZE, E4HOLOCAUSTINTENT | — | A5HOLOCAUSTMINIMIZE |
+| Holocaust mechanism denial | E4HOLOCAUSTMECHANISM, E4HOLOCAUSTINTENT | — | A5HOLOCAUSTMECHANISM |
+| Holocaust exaggeration accusation | E4HOLOCAUSTINTENT, E5HOLOCAUSTINVENT, E5HOLOCAUSTEXAGGERATE | — | — |
 | Nazi comparison | E10ISRAELNAZI | — | — |
-| Classic antisemitic symbols applied to Israel | E9CHARACTERIZEISRAEL | — | B6ISRAELCARICATURE |
+| Classic antisemitic symbols applied to Israel | E9CHARACTERIZEISRAEL | — | B6CHARACTERIZEISRAEL |
 | Requiring Jews to condemn Israel | — | — | B8FORCECONDEMN |
-| Treating Jews as Israeli agents | — | — | B7ISRAELAGENT |
-| Physical harm / violence | E1VIOLENCE | N9PHYSICALHARM | A3ASSAULT |
+| Violence | E1VIOLENCE | N9VIOLENCE | A3VIOLENCE |
 | Incitement to violence | — | N10INCITEMENT | — |
 | Stereotyping | D2STEREOTYPE, E2STEREOTYPE | — | A1ESSENTIAL |
 | Dehumanization | E2DEHUMANIZATION | — | — |
 | Demonization | E2DEMONIZE | — | — |
-| Blame for world's problems | D2BLAME | N5ISRAELHAND | — |
 | Jewish identity denial | — | N7IDENTITYDENY | — |
-| Discrimination | E14DISCRIMINATION | N1DISCRIMINATION | A3EMPLOYMENT |
-| Criticism of Israel not antisemitic | D2DOUBLESTANDARD | N14ISRAELCRITICISM | C13ISRAELEVIDENCE, C13ISRAELPOLICIES |
-| Opposition to Zionism not antisemitic | — | N17OPPOSITION | C12ZIONCRITICAL |
-| BDS not antisemitic | — | N14ISRAELCRITICISM | C14BDS |
-| Harsh/disproportionate criticism not antisemitic | — | N16HARSHCRITICISM, N18DISPROPORTIONATE | C15REASONABLE |
+| Discrimination | E14DISCRIMINATION | N1DISCRIMINATION | A3DISCRIMINATION |
+
+### NO CODES
+| Concept | IHRA | Nexus | JDA |
+|---|---|---|---|
+| Criticism of Israel not antisemitic | D2DOUBLESTANDARD | N14ISRAELCRITICISM | C13ISRAELEVIDENCE, C13ISRAELPOLICIES, C15DOUBLESTANDARD |
+| Opposition to Zionism not antisemitic | — | N14ISRAELCRITICISM, N17OPPOSITION | C12ZIONCRITICAL |
+| BDS not antisemitic | — | — | C14BDS |
+| Harsh/disproportionate criticism not antisemitic | — | N14ISRAELCRITICISM, N16HARSHCRITICISM, N18DISPROPORTIONATE | C15REASONABLE, C15DOUBLESTANDARD |
 | Palestinian rights / justice not antisemitic | — | — | C11PALESTINIANJUSTICE, C11PALESTINIANRIGHTS |
 | Suppression of criticism via antisemitism accusation | — | N15SUPPRESSIONFREEDOM, N15SUPPRESSIONDIALOGUE | — |
+| No other codes apply | NOOTHER_I | NOOTHER_N | NOOTHER_J | 
 
 ## [International Holocaust Rememberance Alliance (IHRA) Working Definition](https://holocaustremembrance.com/resources/working-definition-antisemitism)
 
@@ -64,7 +67,7 @@ As each definition of antisemitism provides unique guidelines and examples as to
    - D2ISRAELTARGET "Manifestations might include the targeting of the state of Israel, conceived as a Jewish collectivity."
    - D2DOUBLESTANDARD "criticism of Israel similar to that leveled against any other country cannot be regarded as antisemitic."
    - D2CONSPIRACY "Antisemitism frequently charges Jews with conspiring to harm humanity"
-   - D2BLAME "it is often used to blame Jews for 'why things go wrong.'"
+   - D2COLLECTIVEBLAME "it is often used to blame Jews for 'why things go wrong.'"
    - D2STEREOTYPE "employs sinister stereotypes and negative character traits."
 
 2. Contemporary examples of antisemitism (YES Codes)
@@ -78,7 +81,7 @@ As each definition of antisemitism provides unique guidelines and examples as to
    - E2DEHUMANIZATION "dehumanizing ... allegations about Jews as such"
    - E2DEMONIZE "demonizing ... allegations about Jews as such"
    - E2STEREOTYPE "stereotypical allegations about Jews as such"
-   - E2COLLECTIVEAGENDA "the power of Jews as collective"
+   - E2COLLECTIVEPOWER "the power of Jews as collective"
    - E2CONSPIRACY "the myth about a world Jewish conspiracy"
    - E2CONTROLMEDIA "Jews controlling the media"
    - E2CONTROLECONOMY "Jews controlling the economy"
@@ -99,8 +102,8 @@ As each definition of antisemitism provides unique guidelines and examples as to
    - E5HOLOCAUSTEXAGGERATE "Accusing the Jews as a people, or Israel as a state, of ... exaggerating the Holocaust."
 
    2.6 E6
-   - E6ISRAELFIFTHCOLUMN "Accusing Jewish citizens of being more loyal to Israel"
-   - E6GLOBALFIFTHCOLUMN "or to the alleged priorities of Jews worldwide"
+   - E6ISRAELLOYALTY "Accusing Jewish citizens of being more loyal to Israel"
+   - E6GLOBALLOYALTY "or to the alleged priorities of Jews worldwide"
 
    2.7 E7
    - E7JEWISHRIGHTS "Denying the Jewish people their right to self-determination"
@@ -173,7 +176,7 @@ As each definition of antisemitism provides unique guidelines and examples as to
    - N5ISRAELHAND "or of being the maligning hand of Israel or Zionism."
 
    2.5 N6
-   - N6LOYALTYDOUBT "Considering Jews to be a priori incapable of setting aside their loyalty to the Jewish people and/or Israel."
+   - N6LOYALTY "Considering Jews to be a priori incapable of setting aside their loyalty to the Jewish people and/or Israel."
 
    2.6 N7
    - N7IDENTITYDENY "Denigrating or denying the Jewish identity of certain Jews because they are perceived as holding the 'wrong' position (whether too critical or too favorable) on Israel."
@@ -182,7 +185,7 @@ As each definition of antisemitism provides unique guidelines and examples as to
    - N8COLLECTIVEGUILT "using symbols and images that present all Jews as collectively guilty for the actions of the State of Israel."
 
    2.8 N9
-   - N9PHYSICALHARM "attacking and/or physically harming a Jew because of her/his relationship to Israel."
+   - N9VIOLENCE "attacking and/or physically harming a Jew because of her/his relationship to Israel."
 
    2.9 N10
    - N10INCITEMENT "conveying intense hostility toward Jews who are connected to Israel in a way that intentionally or irresponsibly... provokes antisemitic violence."
@@ -191,9 +194,9 @@ As each definition of antisemitism provides unique guidelines and examples as to
    - N11SELFDETERMINATION "treating Israel in a negative manner based on a claim that Jews alone should be denied the right to define themselves as a people and to exercise any form of self-determination."
 
    2.11 N12
-   - N12ADVOCATEDENY "advocating a political solution that denies Jews the right to define themselves as a people"
+   - N12JEWISHRIGHTSDEFINE "advocating a political solution that denies Jews the right to define themselves as a people"
    - N12SELFDETERMINATION "denying them — because they are Jews — the right to self-determination"
-   - N12PHYSICALSAFETY "and/or the right to physical safety and full human, civil, and religious rights."
+   - N12JEWISHRIGHTS "and/or the right to physical safety and full human, civil, and religious rights."
 
    2.12 N13
    - N13DOUBLESTANDARD "treating Israel differently solely because it is a Jewish state, using standards different than those applied to other countries."
@@ -233,7 +236,7 @@ As each definition of antisemitism provides unique guidelines and examples as to
      "Jews are linked to the forces of evil."
    - A2CONSPIRACY
      "the idea of a Jewish conspiracy"
-   - A2HIDDEN
+   - A2HIDDENPOWER
      "\"the Jews\" possess hidden power"
    - A2COLLECTIVEAGENDA
      "promote their own collective agenda at the expense of other people."
@@ -243,7 +246,7 @@ As each definition of antisemitism provides unique guidelines and examples as to
      "own the banks"
    - A2CONTROLMEDIA
      "control the media"
-   - A2FIFTHCOLUMN
+   - A2LOYALTY
      "act as \"a state within a state\""
    - A2DISEASE
      "responsible for spreading disease (such as Covid-19)."
@@ -257,13 +260,13 @@ As each definition of antisemitism provides unique guidelines and examples as to
      "or unpatriotic."
    - A3CARICATURE
      "depicted as grotesque, with big noses and associated with wealth."
-   - A3ASSAULT
+   - A3VIOLENCE
      "assaulting someone because she or he is Jewish"
    - A3SYNAGOGUE
      "attacking a synagogue"
    - A3SWASTIKA
      "daubing swastikas on Jewish graves"
-   - A3EMPLOYMENT
+   - A3DISCRIMINATION
      "refusing to hire or promote people because they are Jewish."
 
    1.4 A4
@@ -287,7 +290,7 @@ As each definition of antisemitism provides unique guidelines and examples as to
 2. B. Israel and Palestine: examples that, on the face of it, are antisemitic (YES Codes)
 
    2.1 B6
-   - B6ISRAELCARICATURE
+   - B6CHARACTERIZEISRAEL
      "Applying the symbols, images and negative stereotypes of classical antisemitism... to the State of Israel."
 
    2.2 B7
@@ -301,7 +304,7 @@ As each definition of antisemitism provides unique guidelines and examples as to
      "Requiring people, because they are Jewish, publicly to condemn Israel or Zionism"
 
    2.4 B9
-   - B9ISRAELFIFTHCOLUMN
+   - B9ISRAELLOYALTY
      "Assuming that non-Israeli Jews, simply because they are Jews, are necessarily more loyal to Israel than to their own countries."
 
    2.5 B10
