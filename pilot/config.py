@@ -1,65 +1,50 @@
-# Definition Codebook
+# config.py
+# Labeling Instructions in Blocks
 
-As each definition of antisemitism provides unique guidelines and examples as to what constitutes antisemitism, the dataset is labeled to identify what specific components of the definition may apply to a given text. Each label is returned as  either `N` (Not Applicable), `E` (Explicitly Applicable), `O` (Implicitly Applicable: Obfuscation), `C` (Implicitly Applicable: Contextual), `I` (Implicitly Applicable: Compounded), or `A` (Ambiguous).
+# All NOOTHER_* codes are programmatically assigned E if all codes return N,
+# or A if all codes return as N or A.
 
-## Response Index 
+UNIVERSAL = """
+General Instructions
 
-| Code | Name | Description | Example | Explanation |
-|---|---|---|---|---|
-| N | Not Applicable | The code is unambiguously inapplicable to the text. | "Political polarization is growing in the US." or "Pizza is my favorite." | The text is completely unrelated to the code. |
-| E | Explicitly Applicable | There is direct and unambiguous evidence the code applies to the text. The text does not attempt to obfuscate its stance, and the code applies stably independent of context. | "I hate Jews." | The text directly states its stance without any ambiguity. |
-| O | Implicitly Applicable: Obfuscation | There is strong evidence that the code applies to the text. The text attempts to obfuscate its stance using dogwhistles or coded language. | "(((They))) are always responsible." | The triple parenthetical indicates an unambiguous reference to Jewish people, and is intended to be plausibly neutral discourse to lay people. |
-| C | Implicitly Applicable: Contextual | There is strong evidence that the code applies to the text. The code may or may not apply to the text, but only clearly applies given the larger context the text is situated within. | "From the river to the sea." | Does not attempt to obfuscate its stance, but can signal several non-exclusive stances such that the intended meaning can only be delineated in-context. |
-| I | Implicitly Applicable: Compounded | There is strong evidence that the code applies to the text. The text both (1) attempts to obfuscate its stance using dogwhistles or coded language, *and* (2) only clearly applies given the larger context the text is situated within. | "271k" | In reference to the conspiracy theory that only 271,000 Jews were murdered in the Holocaust, or that these actions did not target Jews as-such. The number itself is neutral, but communicates a particular meaning in relevant discussions, and is intended to be plausibly neutral discourse to lay people. |
-| A | Ambiguous | It is unclear, even given context, whether the code applies to the text. | "They have always controlled the narrative." | Even within the larger thread the text is situated within, and other texts by the same author, it is genuinely ambiguous and cannot even be inferred who the author is referring to. If in-context the author has made clear who 'they' are, or it can be reasonably inferred the author is purposefully obfuscating who 'they' are, the code is not ambiguous. Vague language alone does not mean a text is ambiguous. |
+You will be given a set of codes with components of definitions of antisemitism. 
+You will be given a text with a unique comment_id and codes with unique code_ids.
+The codes given describe definitions of what {ISorisNOT} antisemitic.
+You will label the comment_id across each code.
+You will return ONLY a response in a key-value pair format where the value is a list of tuples:
+    comment_id: [("code_id", "label"), ..., ("code_id", "label")]
+Such that for the coment_id there is one tuple per code given,
+Where the code_id is the identifier string (e.g. A1NAME).
 
-## Code Map
+Label Instructions
 
-### YES CODES
-| Concept | IHRA | Nexus | JDA |
-|---|---|---|---|
-| Collective blame | D2COLLECTIVEBLAME, E11COLLECTIVEBLAME | N3COLLECTIVEBLAME, N4HIDDENCONSPIRACY, N4ISRAELHAND, N7COLLECTIVEGUILT | B7COLLECTIVEBLAME, B7ISRAELAGENT |
-| Conspiracy and hidden agendas | D2CONSPIRACY, E2CONSPIRACY, E2COLLECTIVEPOWER | N2CONSPIRACY, N4HIDDENCONSPIRACY | A2CONSPIRACY, A2HIDDENPOWER, A2COLLECTIVEAGENDA, A4ROTHSCHILD |
-| Control of media | E2CONTROLMEDIA | N2CONTROLMEDIA | A2CONTROLMEDIA |
-| Control of economy | E2CONTROLECONOMY | N2CONTROLECONOMY | — |
-| Control of government | E2CONTROLGOV | N2CONTROLGOV | A2CONTROLGOV |
-| Control of other institutions | E2CONTROLOTHER | N2CONTROLOTHER | — |
-| Double standard applied to Israel | E8DOUBLESTANDARD | N12DOUBLESTANDARD | — |
-| Dual loyalty trope | E6ISRAELLOYALTY, E6GLOBALLOYALTY | N5LOYALTY | A2LOYALTY, A3UNPATRIOTIC, B9ISRAELLOYALTY |
-| Denial of Jewish self-determination | E7JEWISHRIGHTS | N10SELFDETERMINATION, N11JEWISHRIGHTSDEFINE, N11SELFDETERMINATION, N11JEWISHRIGHTS | B10JEWISHRIGHTS |
-| Israel as racist endeavor | E7ISRAELRACIST | — | — |
-| Holocaust denial | E4HOLOCAUSTDENIAL, E5HOLOCAUSTINVENT | — | A5HOLOCAUSTDENIAL |
-| Holocaust minimization | E4HOLOCAUSTMINIMIZE, E4HOLOCAUSTINTENT | — | A5HOLOCAUSTMINIMIZE |
-| Holocaust mechanism denial | E4HOLOCAUSTMECHANISM, E4HOLOCAUSTINTENT | — | A5HOLOCAUSTMECHANISM |
-| Holocaust exaggeration accusation | E4HOLOCAUSTINTENT, E5HOLOCAUSTINVENT, E5HOLOCAUSTEXAGGERATE | — | — |
-| Nazi comparison | E10ISRAELNAZI | — | — |
-| Classic antisemitic symbols applied to Israel | E9CHARACTERIZEISRAEL | — | B6CHARACTERIZEISRAEL |
-| Classic antisemitic symbols | E9CLASSICSYMBOL, E9JESUSKILLING, E9BLOODLIBEL | — | A2DISEASE, A4DOGWHISTLE |
-| Exaggerating Israel's influence | — | — | A4ISRAELINFLUENCE |
-| Requiring Jews to condemn Israel | — | — | B8FORCECONDEMN |
-| Violence | E1VIOLENCE | N8VIOLENCE | A3VIOLENCE |
-| Incitement to violence | — | N9INCITEMENT | — |
-| Stereotyping | D2STEREOTYPE, E2STEREOTYPE | — | A1ESSENTIAL |
-| Dehumanization | E2DEHUMANIZATION | — | — |
-| Demonization | E2DEMONIZE | — | A2EVIL, A4ISRAELEVIL |
-| Jewish identity denial | — | N6IDENTITYDENY | — |
-| Discrimination | E14DISCRIMINATION | N1DISCRIMINATION | A3DISCRIMINATION |
+For each code, return exactly one of the following labels:
 
-### NO CODES
-| Concept | IHRA | Nexus | JDA |
-|---|---|---|---|
-| Criticism of Israel not antisemitic | D2DOUBLESTANDARD | N13ISRAELCRITICISM | C13ISRAELEVIDENCE, C13ISRAELPOLICIES, C15DOUBLESTANDARD |
-| Opposition to Zionism not antisemitic | — | N13ISRAELCRITICISM, N16OPPOSITION | C12ZIONCRITICAL |
-| BDS not antisemitic | — | — | C14BDS |
-| Harsh/disproportionate criticism not antisemitic | — | N13ISRAELCRITICISM, N15HARSHCRITICISM, N17DISPROPORTIONATE | C15REASONABLE, C15DOUBLESTANDARD |
-| Palestinian rights / justice not antisemitic | — | — | C11PALESTINIANJUSTICE, C11PALESTINIANRIGHTS |
-| Suppression of criticism via antisemitism accusation | — | N14SUPPRESSIONFREEDOM, N14SUPPRESSIONDIALOGUE | — |
-| No other codes apply | NOOTHER_I | NOOTHER_N | NOOTHER_J | 
+N — Not Applicable: The code is unambiguously inapplicable to the text.
+    Example: "Political polarization is growing in the US." or "Pizza is my favorite." — The text is completely unrelated to the code.
 
-## [International Holocaust Rememberance Alliance (IHRA) Working Definition](https://holocaustremembrance.com/resources/working-definition-antisemitism)
+E — Explicitly Applicable: There is direct and unambiguous evidence the code applies to the text. The text does not attempt to obfuscate its stance, and the code applies stably independent of context.
+    Example: "I hate Jews." — The text directly states its stance without any ambiguity.
 
-1. Definition (YES Codes)
+O — Implicitly Applicable (Obfuscation): There is strong evidence that the code applies to the text. The text attempts to obfuscate its stance using dogwhistles or coded language.
+    Example: "(((They))) are always responsible." — The triple parenthetical indicates an unambiguous reference to Jewish people, and is intended to be plausibly neutral discourse to lay people.
 
+C — Implicitly Applicable (Contextual): There is strong evidence that the code applies to the text. The code may or may not apply to the text, but only clearly applies given the larger context the text is situated within.
+    Example: "From the river to the sea." — Does not attempt to obfuscate its stance, but can signal several non-exclusive stances such that the intended meaning can only be delineated in-context.
+
+I — Implicitly Applicable (Compounded): There is strong evidence that the code applies to the text. The text both (1) attempts to obfuscate its stance using dogwhistles or coded language, and (2) only clearly applies given the larger context the text is situated within.
+    Example: "271k" — In reference to the conspiracy theory that only 271,000 Jews were murdered in the Holocaust, or that these actions did not target Jews as-such. The number itself is neutral, but communicates a particular meaning in relevant discussions, and is intended to be plausibly neutral discourse to lay people.
+
+A — Ambiguous: It is unclear, even given context, whether the code applies to the text.
+    Example: "They have always controlled the narrative." — Even within the larger thread the text is situated within, and other texts by the same author, it is genuinely ambiguous and cannot even be inferred who the author is referring to. If in-context the author has made clear who 'they' are, or it can be reasonably inferred the author is purposefully obfuscating who 'they' are, the code is not ambiguous. Vague language alone does not mean a text is ambiguous.
+
+Codes to Label
+
+"""
+
+# ====================== IHRA
+
+I_1 = """
    1.1 D1
    - D1PERCEPTION "Antisemitism is a certain perception of Jews"
    - D1HATE "which may be expressed as hatred toward Jews."
@@ -67,13 +52,14 @@ As each definition of antisemitism provides unique guidelines and examples as to
 
    1.2 D2
    - D2ISRAELTARGET "Manifestations might include the targeting of the state of Israel, conceived as a Jewish collectivity."
-   - D2DOUBLESTANDARD "criticism of Israel similar to that leveled against any other country cannot be regarded as antisemitic."
    - D2CONSPIRACY "Antisemitism frequently charges Jews with conspiring to harm humanity"
    - D2COLLECTIVEBLAME "it is often used to blame Jews for 'why things go wrong.'"
    - D2STEREOTYPE "employs sinister stereotypes and negative character traits."
+"""
 
-2. Contemporary examples of antisemitism (YES Codes)
+# ----------------------
 
+I_2 = """
    2.1 E1
    - E1VIOLENCE "Calling for, aiding, or justifying the killing or harming of Jews"
    - E1RADICAL "in the name of a radical ideology or an extremist view of religion."
@@ -92,7 +78,11 @@ As each definition of antisemitism provides unique guidelines and examples as to
 
    2.3 E3
    - E3COLLECTIVEBLAME "Accusing Jews as a people of being responsible for real or imagined wrongdoing committed by a single Jewish person or group, or even for acts committed by non-Jews."
+"""
 
+# ----------------------
+
+I_3 = """
    2.4 E4
    - E4HOLOCAUSTDENIAL "Denying the fact ... of the genocide of the Jewish people"
    - E4HOLOCAUSTMINIMIZE "Denying the ... scope ... of the genocide of the Jewish people"
@@ -102,7 +92,11 @@ As each definition of antisemitism provides unique guidelines and examples as to
    2.5 E5
    - E5HOLOCAUSTINVENT "Accusing the Jews as a people, or Israel as a state, of inventing ... the Holocaust."
    - E5HOLOCAUSTEXAGGERATE "Accusing the Jews as a people, or Israel as a state, of ... exaggerating the Holocaust."
+"""
 
+# ----------------------
+
+I_4 = """
    2.6 E6
    - E6ISRAELLOYALTY "Accusing Jewish citizens of being more loyal to Israel"
    - E6GLOBALLOYALTY "or to the alleged priorities of Jews worldwide"
@@ -126,9 +120,11 @@ As each definition of antisemitism provides unique guidelines and examples as to
 
    2.11 E11
    - E11COLLECTIVEBLAME "Holding Jews collectively responsible for actions of the state of Israel."
+"""
 
-3. Additional Enforcement (YES Codes)
+# ----------------------
 
+I_5 = """
    3.1 E12
    - E12CRIMINAL "Antisemitic acts are criminal when they are so defined by law"
    - E12CRIMINALDENIAL "for example, denial of the Holocaust"
@@ -145,21 +141,27 @@ As each definition of antisemitism provides unique guidelines and examples as to
 
    3.3 E14
    - E14DISCRIMINATION "Antisemitic discrimination is the denial to Jews of opportunities or services available to others"
+"""
 
-4. NOOTHER_I: Text is not antisemitic under the IHRA definition and does not fit the IHRA working definition.
+# ----------------------
 
-## [The Nexus Document](https://nexusproject.us/nexus-resources/the-nexus-document/)
+I_NO_1 = """
+   - D2DOUBLESTANDARD "criticism of Israel similar to that leveled against any other country cannot be regarded as antisemitic."
+"""
 
-1. General Definition (YES Codes)
+# ====================== Nexus
 
+N_1 = """
    1.1 N1
    - N1BELIEFS "anti-Jewish beliefs, attitudes, actions or systemic conditions"
    - N1NEGATIVEATTITUDE "negative beliefs and feelings about Jews"
    - N1HOSTILECONDUCT "hostile behavior directed against Jews (because they are Jews)"
    - N1DISCRIMINATION "conditions that discriminate against Jews and significantly impede their ability to participate as equals in political, religious, cultural, economic, or social life."
+"""
 
-2. Israel and Antisemitism: What Is Antisemitic (YES Codes)
+# ----------------------
 
+N_2 = """
    2.1 N2
    - N2CONSPIRACY "Characterizing Israel as being part of a sinister world conspiracy of Jewish control of the media, economy, government or other financial, cultural or societal institutions."
    - N2CONTROLMEDIA "Jews controlling the media"
@@ -199,9 +201,11 @@ As each definition of antisemitism provides unique guidelines and examples as to
 
    2.11 N12
    - N12DOUBLESTANDARD "treating Israel differently solely because it is a Jewish state, using standards different than those applied to other countries."
+"""
 
-3. Israel and Antisemitism: What Is Not Antisemitic (NO Codes)
+# ----------------------
 
+N_NO_1 = """
    3.1 N13
    - N13ISRAELCRITICISM "criticism of Zionism and Israel, opposition to Israel's policies, or nonviolent political action directed at the State of Israel and/or its policies should not, as such, be deemed antisemitic."
 
@@ -219,13 +223,11 @@ As each definition of antisemitism provides unique guidelines and examples as to
 
    3.5 N17
    - N17DISPROPORTIONATE "Paying disproportionate attention to Israel and treating Israel differently than other countries is not prima facie proof of antisemitism."
+"""
 
-4. NOOTHER_N: Text is not antisemitic under the Nexus Document definition and does not fit the Nexus Document definition.
+# ====================== JDA
 
-## [Jerusalem Declaration on Antisemitism](https://jerusalemdeclaration.org/#jda)
-
-1. A. General (YES Codes)
-
+J_1 = """
    1.1 A1
    - A1ESSENTIAL
      "It is racist to essentialize (treat a character trait as inherent) or to make sweeping negative generalizations about a given population."
@@ -267,7 +269,11 @@ As each definition of antisemitism provides unique guidelines and examples as to
      "daubing swastikas on Jewish graves"
    - A3DISCRIMINATION
      "refusing to hire or promote people because they are Jewish."
+"""
 
+# ----------------------
+
+J_2 = """
    1.4 A4
    - A4DOGWHISTLE
      "Antisemitism can be direct or indirect, explicit or coded."
@@ -285,9 +291,11 @@ As each definition of antisemitism provides unique guidelines and examples as to
      "there were no extermination camps or gas chambers"
    - A5HOLOCAUSTMINIMIZE
      "the number of victims was a fraction of the actual total"
+"""
 
-2. B. Israel and Palestine: examples that, on the face of it, are antisemitic (YES Codes)
+# ----------------------
 
+J_3 = """
    2.1 B6
    - B6CHARACTERIZEISRAEL
      "Applying the symbols, images and negative stereotypes of classical antisemitism... to the State of Israel."
@@ -309,9 +317,11 @@ As each definition of antisemitism provides unique guidelines and examples as to
    2.5 B10
    - B10JEWISHRIGHTS
      "Denying the right of Jews in the State of Israel to exist and flourish, collectively and individually, as Jews, in accordance with the principle of equality."
+"""
 
-3. C. Israel and Palestine: examples that, on the face of it, are not antisemitic (NO Codes)
+# ----------------------
 
+J_NO_1 = """
    3.1 C11
    - C11PALESTINIANJUSTICE
      "Supporting the Palestinian demand for justice"
@@ -353,5 +363,15 @@ As each definition of antisemitism provides unique guidelines and examples as to
      "Political speech does not have to be measured, proportional, tempered, or reasonable... the line between antisemitic and non-antisemitic speech is different from the line between unreasonable and reasonable speech.""
    - C15DOUBLESTANDARD
      "Criticism that some may see as excessive or contentious, or as reflecting a \"double standard\", is not, in and of itself, antisemitic."
+"""
 
-4. NOOTHER_J: Text is not antisemitic under the JDA definition and does not fit the JDA definition.
+# ====================== Input
+
+INPUT = """
+
+This is the comment_id: {id}
+This is the text to code: {text}
+
+The key-value pair with the labels is:
+"""
+
