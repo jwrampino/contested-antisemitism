@@ -19,7 +19,7 @@ As each definition of antisemitism provides unique guidelines and examples as to
 | Concept | IHRA | Nexus | JDA |
 |---|---|---|---|
 | Collective blame | D2COLLECTIVEBLAME, E11COLLECTIVEBLAME | N4COLLECTIVEBLAME, N5HIDDENCONSPIRACY, N5ISRAELHAND, N8COLLECTIVEGUILT | B7COLLECTIVEBLAME, B7ISRAELAGENT |
-| Conspiracy and hidden agendas | D2CONSPIRACY, E2CONSPIRACY, E2COLLECTIVEPOWER | N3CONSPIRACY, N5HIDDENCONSPIRACY | A2CONSPIRACY, A2HIDDENPOWER, A2COLLECTIVEAGENDA |
+| Conspiracy and hidden agendas | D2CONSPIRACY, E2CONSPIRACY, E2COLLECTIVEPOWER | N3CONSPIRACY, N5HIDDENCONSPIRACY | A2CONSPIRACY, A2HIDDENPOWER, A2COLLECTIVEAGENDA, A4ROTHSCHILD |
 | Control of media | E2CONTROLMEDIA | N3CONTROLMEDIA | A2CONTROLMEDIA |
 | Control of economy | E2CONTROLECONOMY | N3CONTROLECONOMY | — |
 | Control of government | E2CONTROLGOV | N3CONTROLGOV | A2CONTROLGOV |
@@ -34,12 +34,14 @@ As each definition of antisemitism provides unique guidelines and examples as to
 | Holocaust exaggeration accusation | E4HOLOCAUSTINTENT, E5HOLOCAUSTINVENT, E5HOLOCAUSTEXAGGERATE | — | — |
 | Nazi comparison | E10ISRAELNAZI | — | — |
 | Classic antisemitic symbols applied to Israel | E9CHARACTERIZEISRAEL | — | B6CHARACTERIZEISRAEL |
+| Classic antisemitic symbols | E9CLASSICSYMBOL, E9JESUSKILLING, E9BLOODLIBEL | — | A2DISEASE, A4DOGWHISTLE |
+| Exaggerating Israel's influence | — | — | A4ISRAELINFLUENCE |
 | Requiring Jews to condemn Israel | — | — | B8FORCECONDEMN |
 | Violence | E1VIOLENCE | N9VIOLENCE | A3VIOLENCE |
 | Incitement to violence | — | N10INCITEMENT | — |
 | Stereotyping | D2STEREOTYPE, E2STEREOTYPE | — | A1ESSENTIAL |
 | Dehumanization | E2DEHUMANIZATION | — | — |
-| Demonization | E2DEMONIZE | — | — |
+| Demonization | E2DEMONIZE | — | A2EVIL, A4ISRAELEVIL |
 | Jewish identity denial | — | N7IDENTITYDENY | — |
 | Discrimination | E14DISCRIMINATION | N1DISCRIMINATION | A3DISCRIMINATION |
 
