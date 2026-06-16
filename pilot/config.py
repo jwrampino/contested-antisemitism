@@ -11,8 +11,9 @@ You will be given a set of codes with components of definitions of antisemitism.
 You will be given a text with a unique comment_id and codes with unique code_ids.
 The codes given describe definitions of what {ISorisNOT} antisemitic.
 You will label the comment_id across each code.
-You will return ONLY a response in a key-value pair format where the value is a list of tuples:
-    comment_id: [("code_id", "label"), ..., ("code_id", "label")]
+You will return ONLY a JSON object in the following format:
+{{"comment_id": [["code_id", "label"], ["code_id", "label"]]}}
+Return one array per code given. Return nothing else.
 Such that for the coment_id there is one tuple per code given,
 Where the code_id is the identifier string (e.g. A1NAME).
 
@@ -20,8 +21,8 @@ Label Instructions
 
 For each code, return exactly one of the following labels:
 
-N — Not Applicable: The code is unambiguously inapplicable to the text.
-    Example: "Political polarization is growing in the US." or "Pizza is my favorite." — The text is completely unrelated to the code.
+N — Not Applicable: The text is completely unrelated or inapplicable to the code. *This includes texts that critically discuss, quote, refute, or reference antisemitic ideas in an unambiguously neutral way.*
+    Example: "Political polarization is growing in the US." or "Pizza is my favorite." or "The conspiracy theory that Jews control the media is a common far-right trope."
 
 E — Explicitly Applicable: There is direct and unambiguous evidence the code applies to the text. The text does not attempt to obfuscate its stance, and the code applies stably independent of context.
     Example: "I hate Jews." — The text directly states its stance without any ambiguity.
