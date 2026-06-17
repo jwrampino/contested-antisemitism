@@ -49,4 +49,6 @@ For the NLI convergent validity models (M5), each codebook definition text is us
 | M5c | NLI Convergent Validity | JDA | YES + NO | JDA NLI entailment scores | Continuous hate speech score | Tests whether JDA NO codes affect approximation vs M5e |
 | M5d | NLI Convergent Validity | All | YES + NO | All-definition NLI entailment scores | Continuous hate speech score | Tests whether NO codes affect joint approximation vs M5g |
 
+by platform post-analysis
+
 ## Results

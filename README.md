@@ -45,7 +45,8 @@ reiger et al              https://doi.org/10.1177/20563051211052906
 ## Instructions
 
 ```
-conda
+conda env create -f environment.yml
+conda activate anti
 ```
 
 ## Results
