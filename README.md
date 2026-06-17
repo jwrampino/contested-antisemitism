@@ -29,7 +29,11 @@ multimodal
 Chandra et al (2021)      https://doi.org/10.1145/3447535.3462502  
 Salhi and Goldhorn (2025) https://doi.org/10.11647/obp.0447.06  
   
-social media  
+social media (far-right attitudes)
+colley and moore          https://doi.org/10.1177/1461444820948803
+reiger et al              https://doi.org/10.1177/20563051211052906
+
+
 
   
 ## Methodology
@@ -37,6 +41,12 @@ social media
 [Pilot](https://github.com/jwrampino/antisemitism_classifier/blob/main/pilot/PILOT.md)
 
 [Code](https://github.com/jwrampino/antisemitism_classifier/blob/main/CODEBOOK.md)
+
+## Instructions
+
+```
+conda
+```
 
 ## Results
 

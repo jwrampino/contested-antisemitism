@@ -54,7 +54,6 @@ As each definition of antisemitism provides unique guidelines and examples as to
 | Harsh/disproportionate criticism not antisemitic | — | N13ISRAELCRITICISM, N15HARSHCRITICISM, N17DISPROPORTIONATE | C15REASONABLE, C15DOUBLESTANDARD |
 | Palestinian rights / justice not antisemitic | — | — | C11PALESTINIANJUSTICE, C11PALESTINIANRIGHTS |
 | Suppression of criticism via antisemitism accusation | — | N14SUPPRESSIONFREEDOM, N14SUPPRESSIONDIALOGUE | — |
-| No other codes apply | NOOTHER_I | NOOTHER_N | NOOTHER_J | 
 
 ## [International Holocaust Rememberance Alliance (IHRA) Working Definition](https://holocaustremembrance.com/resources/working-definition-antisemitism)
 
@@ -146,8 +145,6 @@ As each definition of antisemitism provides unique guidelines and examples as to
    3.3 E14
    - E14DISCRIMINATION "Antisemitic discrimination is the denial to Jews of opportunities or services available to others"
 
-4. NOOTHER_I: Text is not antisemitic under the IHRA definition and does not fit the IHRA working definition.
-
 ## [The Nexus Document](https://nexusproject.us/nexus-resources/the-nexus-document/)
 
 1. General Definition (YES Codes)
@@ -219,8 +216,6 @@ As each definition of antisemitism provides unique guidelines and examples as to
 
    3.5 N17
    - N17DISPROPORTIONATE "Paying disproportionate attention to Israel and treating Israel differently than other countries is not prima facie proof of antisemitism."
-
-4. NOOTHER_N: Text is not antisemitic under the Nexus Document definition and does not fit the Nexus Document definition.
 
 ## [Jerusalem Declaration on Antisemitism](https://jerusalemdeclaration.org/#jda)
 
@@ -353,5 +348,3 @@ As each definition of antisemitism provides unique guidelines and examples as to
      "Political speech does not have to be measured, proportional, tempered, or reasonable... the line between antisemitic and non-antisemitic speech is different from the line between unreasonable and reasonable speech.""
    - C15DOUBLESTANDARD
      "Criticism that some may see as excessive or contentious, or as reflecting a \"double standard\", is not, in and of itself, antisemitic."
-
-4. NOOTHER_J: Text is not antisemitic under the JDA definition and does not fit the JDA definition.

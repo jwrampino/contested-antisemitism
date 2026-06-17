@@ -1,9 +1,6 @@
 # config.py
 # Labeling Instructions in Blocks
 
-# All NOOTHER_* codes are programmatically assigned E if all codes return N,
-# or A if all codes return as N or A.
-
 UNIVERSAL = """
 General Instructions
 
