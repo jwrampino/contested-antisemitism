@@ -1,43 +1,34 @@
 # config.py
 # Labeling Instructions in Blocks
 
-UNIVERSAL = """
-General Instructions
-
-You will be given a set of codes with components of definitions of antisemitism. 
+UNIVERSAL = """You will be given a set of codes with components of definitions of antisemitism.
 You will be given a text with a unique comment_id and codes with unique code_ids.
 The codes given describe definitions of what {ISorisNOT} antisemitic.
 You will label the comment_id across each code.
 You will return ONLY a JSON object in the following format:
 {{"comment_id": [["code_id", "label"], ["code_id", "label"]]}}
+
 Return one array per code given. Return nothing else.
-Such that for the coment_id there is one tuple per code given,
-Where the code_id is the identifier string (e.g. A1NAME).
+Such that for the comment_id there is one tuple per code given,
+where the code_id is the identifier string (e.g. A1NAME).
 
-Label Instructions
+Response scale:
 
-For each code, return exactly one of the following labels:
-
-N — Not Applicable: The text is completely unrelated or inapplicable to the code. *This includes texts that critically discuss, quote, refute, or reference antisemitic ideas in an unambiguously neutral way.*
+N — Not Applicable: The code is unambiguously inapplicable to the text.
     Example: "Political polarization is growing in the US." or "Pizza is my favorite." or "The conspiracy theory that Jews control the media is a common far-right trope."
+    The text is completely unrelated or inapplicable to the code. This includes texts that critically discuss, quote, refute, or reference antisemitic ideas in an unambiguously neutral way.
 
 E — Explicitly Applicable: There is direct and unambiguous evidence the code applies to the text. The text does not attempt to obfuscate its stance, and the code applies stably independent of context.
-    Example: "I hate Jews." — The text directly states its stance without any ambiguity.
+    Example: "I hate Jews."
+    The text directly states its stance without any ambiguity.
 
-O — Implicitly Applicable (Obfuscation): There is strong evidence that the code applies to the text. The text attempts to obfuscate its stance using dogwhistles or coded language.
-    Example: "(((They))) are always responsible." — The triple parenthetical indicates an unambiguous reference to Jewish people, and is intended to be plausibly neutral discourse to lay people.
+I — Implicitly Applicable: There is strong evidence that the code applies to the text. The text communicates this through coded language, dogwhistles, numeric or symbolic encoding, or qualifying information contained within the text itself, such that the meaning is resolvable from the text alone, even though it is not stated plainly.
+    Example: "(((They))) are always responsible" or "From the river to the sea, every last one of X must go" or "271k" referencing Holocaust-denial minimization.
+    The text supplies everything needed to resolve the meaning, it is simply communicated through a device (parentheses, an internal qualifying clause, a known coded dogwhistle) rather than stated outright.
 
-C — Implicitly Applicable (Contextual): There is strong evidence that the code applies to the text. The code may or may not apply to the text, but only clearly applies given the larger context the text is situated within.
-    Example: "From the river to the sea." — Does not attempt to obfuscate its stance, but can signal several non-exclusive stances such that the intended meaning can only be delineated in-context.
-
-I — Implicitly Applicable (Compounded): There is strong evidence that the code applies to the text. The text both (1) attempts to obfuscate its stance using dogwhistles or coded language, and (2) only clearly applies given the larger context the text is situated within.
-    Example: "271k" — In reference to the conspiracy theory that only 271,000 Jews were murdered in the Holocaust, or that these actions did not target Jews as-such. The number itself is neutral, but communicates a particular meaning in relevant discussions, and is intended to be plausibly neutral discourse to lay people.
-
-A — Ambiguous: It is unclear, even given context, whether the code applies to the text.
-    Example: "They have always controlled the narrative." — Even within the larger thread the text is situated within, and other texts by the same author, it is genuinely ambiguous and cannot even be inferred who the author is referring to. If in-context the author has made clear who 'they' are, or it can be reasonably inferred the author is purposefully obfuscating who 'they' are, the code is not ambiguous. Vague language alone does not mean a text is ambiguous.
-
-Codes to Label
-
+A — Ambiguous: It is unclear whether the code applies to the text, because the text does not supply the information needed to resolve it, even when accounting for coded language or devices the reader might recognize.
+    Example: "They have always controlled the narrative" when 'They' has no clear target, or "Globalists are ruining everything" with no qualifying information present, or "From the river to the sea" without a clear target as-such.
+    Nothing in the text, whether stated plainly or encoded, resolves the necessary meaning. This differs from I in that I requires the resolving information to be present somewhere in the text, even if disguised; A applies when that resolving information simply isn't there. Vague language alone does not mean a text is ambiguous if the text itself supplies the needed referent elsewhere.
 """
 
 # ====================== IHRA
