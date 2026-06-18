@@ -350,11 +350,11 @@
         ],
         [
           "A2CONSPIRACY",
-          "N"
+          "I"
         ],
         [
           "A2HIDDENPOWER",
-          "N"
+          "I"
         ],
         [
           "A2COLLECTIVEAGENDA",
@@ -552,11 +552,11 @@
         ],
         [
           "D2ISRAELTARGET",
-          "C"
+          "N"
         ],
         [
           "D2CONSPIRACY",
-          "N"
+          "A"
         ],
         [
           "D2COLLECTIVEBLAME",
@@ -868,7 +868,7 @@
         ],
         [
           "N16ADVERSEEXPERIENCE",
-          "E"
+          "I"
         ],
         [
           "N17DISPROPORTIONATE",
@@ -960,7 +960,7 @@
         ],
         [
           "A4ISRAELEVIL",
-          "C"
+          "A"
         ],
         [
           "A4ISRAELINFLUENCE",
@@ -1008,11 +1008,11 @@
       "J_NO_1": [
         [
           "C11PALESTINIANJUSTICE",
-          "C"
+          "A"
         ],
         [
           "C11PALESTINIANRIGHTS",
-          "N"
+          "A"
         ],
         [
           "C12ZIONCRITICAL",
@@ -1028,7 +1028,7 @@
         ],
         [
           "C13ISRAELEVIDENCE",
-          "C"
+          "I"
         ],
         [
           "C13ISRAELINSTITUTIONS",
@@ -1036,11 +1036,11 @@
         ],
         [
           "C13ISRAELPOLICIES",
-          "C"
+          "I"
         ],
         [
           "C13ISRAELOPT",
-          "C"
+          "I"
         ],
         [
           "C13ISRAELREGION",
@@ -1064,7 +1064,7 @@
         ],
         [
           "C15REASONABLE",
-          "N"
+          "E"
         ],
         [
           "C15DOUBLESTANDARD",
@@ -1076,7 +1076,7 @@
       "I_1": [
         [
           "D1PERCEPTION",
-          "C"
+          "A"
         ],
         [
           "D1HATE",
@@ -1088,15 +1088,15 @@
         ],
         [
           "D2ISRAELTARGET",
-          "C"
+          "I"
         ],
         [
           "D2CONSPIRACY",
-          "C"
+          "I"
         ],
         [
           "D2COLLECTIVEBLAME",
-          "C"
+          "A"
         ],
         [
           "D2STEREOTYPE",
@@ -1114,7 +1114,7 @@
         ],
         [
           "E2ALLEGATION",
-          "C"
+          "I"
         ],
         [
           "E2DEHUMANIZATION",
@@ -1122,7 +1122,7 @@
         ],
         [
           "E2DEMONIZE",
-          "C"
+          "I"
         ],
         [
           "E2STEREOTYPE",
@@ -1130,11 +1130,11 @@
         ],
         [
           "E2COLLECTIVEPOWER",
-          "C"
+          "I"
         ],
         [
           "E2CONSPIRACY",
-          "C"
+          "I"
         ],
         [
           "E2CONTROLMEDIA",
@@ -1146,7 +1146,7 @@
         ],
         [
           "E2CONTROLGOV",
-          "C"
+          "I"
         ],
         [
           "E2CONTROLOTHER",
@@ -1190,7 +1190,7 @@
         ],
         [
           "E6GLOBALLOYALTY",
-          "O"
+          "A"
         ],
         [
           "E7JEWISHRIGHTS",
@@ -1288,11 +1288,11 @@
       "N_1": [
         [
           "N1BELIEFS",
-          "N"
+          "A"
         ],
         [
           "N1NEGATIVEATTITUDE",
-          "N"
+          "A"
         ],
         [
           "N1HOSTILECONDUCT",
@@ -1306,7 +1306,7 @@
       "N_2": [
         [
           "N2CONSPIRACY",
-          "C"
+          "I"
         ],
         [
           "N2CONTROLMEDIA",
@@ -1318,7 +1318,7 @@
         ],
         [
           "N2CONTROLGOV",
-          "C"
+          "I"
         ],
         [
           "N2CONTROLOTHER",
@@ -1330,11 +1330,11 @@
         ],
         [
           "N4HIDDENCONSPIRACY",
-          "N"
+          "I"
         ],
         [
           "N4ISRAELHAND",
-          "C"
+          "I"
         ],
         [
           "N5LOYALTY",
@@ -1380,7 +1380,7 @@
       "N_NO_1": [
         [
           "N13ISRAELCRITICISM",
-          "C"
+          "I"
         ],
         [
           "N14SUPPRESSIONFREEDOM",
@@ -1392,11 +1392,11 @@
         ],
         [
           "N15HARSHCRITICISM",
-          "C"
+          "I"
         ],
         [
           "N16OPPOSITION",
-          "C"
+          "I"
         ],
         [
           "N16NATIONALISM",
@@ -1418,23 +1418,23 @@
         ],
         [
           "A2EVIL",
-          "C"
+          "A"
         ],
         [
           "A2CONSPIRACY",
-          "C"
+          "I"
         ],
         [
           "A2HIDDENPOWER",
-          "C"
+          "I"
         ],
         [
           "A2COLLECTIVEAGENDA",
-          "C"
+          "I"
         ],
         [
           "A2CONTROLGOV",
-          "C"
+          "I"
         ],
         [
           "A2CONTROLBANKS",
@@ -1488,7 +1488,7 @@
       "J_2": [
         [
           "A4DOGWHISTLE",
-          "C"
+          "I"
         ],
         [
           "A4ROTHSCHILD",
@@ -1496,11 +1496,11 @@
         ],
         [
           "A4ISRAELEVIL",
-          "E"
+          "I"
         ],
         [
           "A4ISRAELINFLUENCE",
-          "C"
+          "I"
         ],
         [
           "A5HOLOCAUSTDENIAL",
@@ -1518,7 +1518,7 @@
       "J_3": [
         [
           "B6CHARACTERIZEISRAEL",
-          "A"
+          "N"
         ],
         [
           "B7COLLECTIVEBLAME",
@@ -1552,7 +1552,7 @@
         ],
         [
           "C12ZIONCRITICAL",
-          "E"
+          "I"
         ],
         [
           "C12SOLUTIONS",
@@ -1632,11 +1632,11 @@
         ],
         [
           "D2COLLECTIVEBLAME",
-          "C"
+          "I"
         ],
         [
           "D2STEREOTYPE",
-          "C"
+          "I"
         ]
       ],
       "I_2": [
@@ -1650,7 +1650,7 @@
         ],
         [
           "E2ALLEGATION",
-          "C"
+          "I"
         ],
         [
           "E2DEHUMANIZATION",
@@ -1662,7 +1662,7 @@
         ],
         [
           "E2STEREOTYPE",
-          "C"
+          "I"
         ],
         [
           "E2COLLECTIVEPOWER",
@@ -1824,11 +1824,11 @@
       "N_1": [
         [
           "N1BELIEFS",
-          "C"
+          "A"
         ],
         [
           "N1NEGATIVEATTITUDE",
-          "C"
+          "I"
         ],
         [
           "N1HOSTILECONDUCT",
@@ -1842,7 +1842,7 @@
       "N_2": [
         [
           "N2CONSPIRACY",
-          "A"
+          "N"
         ],
         [
           "N2CONTROLMEDIA",
@@ -1950,7 +1950,7 @@
       "J_1": [
         [
           "A1ESSENTIAL",
-          "C"
+          "I"
         ],
         [
           "A2EVIL",
@@ -2058,7 +2058,7 @@
         ],
         [
           "B7COLLECTIVEBLAME",
-          "N"
+          "A"
         ],
         [
           "B7ISRAELAGENT",
@@ -2696,7 +2696,7 @@
         ],
         [
           "D2ISRAELTARGET",
-          "C"
+          "I"
         ],
         [
           "D2CONSPIRACY",
@@ -2722,7 +2722,7 @@
         ],
         [
           "E2ALLEGATION",
-          "C"
+          "A"
         ],
         [
           "E2DEHUMANIZATION",
@@ -2730,7 +2730,7 @@
         ],
         [
           "E2DEMONIZE",
-          "C"
+          "A"
         ],
         [
           "E2STEREOTYPE",
@@ -3038,7 +3038,7 @@
         ],
         [
           "A2COLLECTIVEAGENDA",
-          "N"
+          "A"
         ],
         [
           "A2CONTROLGOV",
@@ -3104,7 +3104,7 @@
         ],
         [
           "A4ISRAELEVIL",
-          "C"
+          "I"
         ],
         [
           "A4ISRAELINFLUENCE",
@@ -3232,7 +3232,7 @@
         ],
         [
           "D2ISRAELTARGET",
-          "C"
+          "A"
         ],
         [
           "D2CONSPIRACY",
@@ -3346,11 +3346,11 @@
         ],
         [
           "E8DOUBLESTANDARD",
-          "N"
+          "A"
         ],
         [
           "E8UNIQUEDEMAND",
-          "N"
+          "A"
         ],
         [
           "E9CLASSICSYMBOL",
@@ -3388,7 +3388,7 @@
         ],
         [
           "E12CRIMINALMATERIAL",
-          "N"
+          "A"
         ],
         [
           "E13TARGET",
@@ -3536,7 +3536,7 @@
         ],
         [
           "N15HARSHCRITICISM",
-          "N"
+          "E"
         ],
         [
           "N16OPPOSITION",
@@ -3756,7 +3756,7 @@
       "I_1": [
         [
           "D1PERCEPTION",
-          "E"
+          "I"
         ],
         [
           "D1HATE",
@@ -3764,7 +3764,7 @@
         ],
         [
           "D1MANIFEST",
-          "E"
+          "I"
         ],
         [
           "D2ISRAELTARGET",
@@ -3790,7 +3790,7 @@
         ],
         [
           "E1RADICAL",
-          "N"
+          "I"
         ],
         [
           "E2ALLEGATION",
@@ -3852,7 +3852,7 @@
         ],
         [
           "E4HOLOCAUSTINTENT",
-          "N"
+          "I"
         ],
         [
           "E5HOLOCAUSTINVENT",
@@ -3916,7 +3916,7 @@
       "I_5": [
         [
           "E12CRIMINAL",
-          "N"
+          "A"
         ],
         [
           "E12CRIMINALDENIAL",
@@ -3980,7 +3980,7 @@
         ],
         [
           "N1DISCRIMINATION",
-          "N"
+          "E"
         ]
       ],
       "N_2": [
@@ -4168,7 +4168,7 @@
       "J_2": [
         [
           "A4DOGWHISTLE",
-          "N"
+          "I"
         ],
         [
           "A4ROTHSCHILD",
@@ -4640,11 +4640,11 @@
         ],
         [
           "A2CONSPIRACY",
-          "N"
+          "I"
         ],
         [
           "A2HIDDENPOWER",
-          "N"
+          "I"
         ],
         [
           "A2COLLECTIVEAGENDA",
@@ -4842,7 +4842,7 @@
         ],
         [
           "D2ISRAELTARGET",
-          "C"
+          "A"
         ],
         [
           "D2CONSPIRACY",
@@ -5158,7 +5158,7 @@
         ],
         [
           "N16ADVERSEEXPERIENCE",
-          "C"
+          "I"
         ],
         [
           "N17DISPROPORTIONATE",
@@ -5250,7 +5250,7 @@
         ],
         [
           "A4ISRAELEVIL",
-          "C"
+          "A"
         ],
         [
           "A4ISRAELINFLUENCE",
@@ -5298,11 +5298,11 @@
       "J_NO_1": [
         [
           "C11PALESTINIANJUSTICE",
-          "N"
+          "A"
         ],
         [
           "C11PALESTINIANRIGHTS",
-          "N"
+          "A"
         ],
         [
           "C12ZIONCRITICAL",
@@ -5318,7 +5318,7 @@
         ],
         [
           "C13ISRAELEVIDENCE",
-          "C"
+          "I"
         ],
         [
           "C13ISRAELINSTITUTIONS",
@@ -5326,11 +5326,11 @@
         ],
         [
           "C13ISRAELPOLICIES",
-          "C"
+          "I"
         ],
         [
           "C13ISRAELOPT",
-          "C"
+          "I"
         ],
         [
           "C13ISRAELREGION",
@@ -5354,7 +5354,7 @@
         ],
         [
           "C15REASONABLE",
-          "N"
+          "E"
         ],
         [
           "C15DOUBLESTANDARD",
@@ -5366,7 +5366,7 @@
       "I_1": [
         [
           "D1PERCEPTION",
-          "C"
+          "A"
         ],
         [
           "D1HATE",
@@ -5378,15 +5378,15 @@
         ],
         [
           "D2ISRAELTARGET",
-          "C"
+          "I"
         ],
         [
           "D2CONSPIRACY",
-          "C"
+          "I"
         ],
         [
           "D2COLLECTIVEBLAME",
-          "C"
+          "A"
         ],
         [
           "D2STEREOTYPE",
@@ -5404,7 +5404,7 @@
         ],
         [
           "E2ALLEGATION",
-          "C"
+          "I"
         ],
         [
           "E2DEHUMANIZATION",
@@ -5412,7 +5412,7 @@
         ],
         [
           "E2DEMONIZE",
-          "C"
+          "I"
         ],
         [
           "E2STEREOTYPE",
@@ -5420,11 +5420,11 @@
         ],
         [
           "E2COLLECTIVEPOWER",
-          "C"
+          "I"
         ],
         [
           "E2CONSPIRACY",
-          "C"
+          "I"
         ],
         [
           "E2CONTROLMEDIA",
@@ -5436,7 +5436,7 @@
         ],
         [
           "E2CONTROLGOV",
-          "C"
+          "I"
         ],
         [
           "E2CONTROLOTHER",
@@ -5480,7 +5480,7 @@
         ],
         [
           "E6GLOBALLOYALTY",
-          "C"
+          "N"
         ],
         [
           "E7JEWISHRIGHTS",
@@ -5578,11 +5578,11 @@
       "N_1": [
         [
           "N1BELIEFS",
-          "N"
+          "A"
         ],
         [
           "N1NEGATIVEATTITUDE",
-          "N"
+          "A"
         ],
         [
           "N1HOSTILECONDUCT",
@@ -5596,7 +5596,7 @@
       "N_2": [
         [
           "N2CONSPIRACY",
-          "C"
+          "I"
         ],
         [
           "N2CONTROLMEDIA",
@@ -5608,7 +5608,7 @@
         ],
         [
           "N2CONTROLGOV",
-          "C"
+          "I"
         ],
         [
           "N2CONTROLOTHER",
@@ -5620,11 +5620,11 @@
         ],
         [
           "N4HIDDENCONSPIRACY",
-          "N"
+          "I"
         ],
         [
           "N4ISRAELHAND",
-          "C"
+          "I"
         ],
         [
           "N5LOYALTY",
@@ -5670,7 +5670,7 @@
       "N_NO_1": [
         [
           "N13ISRAELCRITICISM",
-          "C"
+          "I"
         ],
         [
           "N14SUPPRESSIONFREEDOM",
@@ -5682,11 +5682,11 @@
         ],
         [
           "N15HARSHCRITICISM",
-          "C"
+          "I"
         ],
         [
           "N16OPPOSITION",
-          "C"
+          "I"
         ],
         [
           "N16NATIONALISM",
@@ -5708,23 +5708,23 @@
         ],
         [
           "A2EVIL",
-          "C"
+          "A"
         ],
         [
           "A2CONSPIRACY",
-          "C"
+          "I"
         ],
         [
           "A2HIDDENPOWER",
-          "C"
+          "I"
         ],
         [
           "A2COLLECTIVEAGENDA",
-          "C"
+          "I"
         ],
         [
           "A2CONTROLGOV",
-          "C"
+          "I"
         ],
         [
           "A2CONTROLBANKS",
@@ -5778,7 +5778,7 @@
       "J_2": [
         [
           "A4DOGWHISTLE",
-          "O"
+          "I"
         ],
         [
           "A4ROTHSCHILD",
@@ -5786,11 +5786,11 @@
         ],
         [
           "A4ISRAELEVIL",
-          "E"
+          "I"
         ],
         [
           "A4ISRAELINFLUENCE",
-          "E"
+          "I"
         ],
         [
           "A5HOLOCAUSTDENIAL",
@@ -5842,7 +5842,7 @@
         ],
         [
           "C12ZIONCRITICAL",
-          "E"
+          "I"
         ],
         [
           "C12SOLUTIONS",
@@ -5902,7 +5902,7 @@
       "I_1": [
         [
           "D1PERCEPTION",
-          "C"
+          "A"
         ],
         [
           "D1HATE",
@@ -5922,11 +5922,11 @@
         ],
         [
           "D2COLLECTIVEBLAME",
-          "C"
+          "I"
         ],
         [
           "D2STEREOTYPE",
-          "C"
+          "I"
         ]
       ],
       "I_2": [
@@ -5940,7 +5940,7 @@
         ],
         [
           "E2ALLEGATION",
-          "C"
+          "I"
         ],
         [
           "E2DEHUMANIZATION",
@@ -5952,7 +5952,7 @@
         ],
         [
           "E2STEREOTYPE",
-          "C"
+          "I"
         ],
         [
           "E2COLLECTIVEPOWER",
@@ -6118,7 +6118,7 @@
         ],
         [
           "N1NEGATIVEATTITUDE",
-          "C"
+          "I"
         ],
         [
           "N1HOSTILECONDUCT",
@@ -6132,7 +6132,7 @@
       "N_2": [
         [
           "N2CONSPIRACY",
-          "A"
+          "N"
         ],
         [
           "N2CONTROLMEDIA",
@@ -6240,7 +6240,7 @@
       "J_1": [
         [
           "A1ESSENTIAL",
-          "A"
+          "I"
         ],
         [
           "A2EVIL",
@@ -6348,7 +6348,7 @@
         ],
         [
           "B7COLLECTIVEBLAME",
-          "N"
+          "A"
         ],
         [
           "B7ISRAELAGENT",
@@ -6986,7 +6986,7 @@
         ],
         [
           "D2ISRAELTARGET",
-          "C"
+          "I"
         ],
         [
           "D2CONSPIRACY",
@@ -7012,7 +7012,7 @@
         ],
         [
           "E2ALLEGATION",
-          "C"
+          "A"
         ],
         [
           "E2DEHUMANIZATION",
@@ -7020,7 +7020,7 @@
         ],
         [
           "E2DEMONIZE",
-          "C"
+          "A"
         ],
         [
           "E2STEREOTYPE",
@@ -7302,7 +7302,7 @@
         ],
         [
           "N16ADVERSEEXPERIENCE",
-          "E"
+          "I"
         ],
         [
           "N17DISPROPORTIONATE",
@@ -7394,7 +7394,7 @@
         ],
         [
           "A4ISRAELEVIL",
-          "E"
+          "I"
         ],
         [
           "A4ISRAELINFLUENCE",
@@ -7522,7 +7522,7 @@
         ],
         [
           "D2ISRAELTARGET",
-          "C"
+          "A"
         ],
         [
           "D2CONSPIRACY",
@@ -7636,11 +7636,11 @@
         ],
         [
           "E8DOUBLESTANDARD",
-          "N"
+          "A"
         ],
         [
           "E8UNIQUEDEMAND",
-          "N"
+          "A"
         ],
         [
           "E9CLASSICSYMBOL",
@@ -7678,7 +7678,7 @@
         ],
         [
           "E12CRIMINALMATERIAL",
-          "N"
+          "A"
         ],
         [
           "E13TARGET",
@@ -7826,7 +7826,7 @@
         ],
         [
           "N15HARSHCRITICISM",
-          "N"
+          "E"
         ],
         [
           "N16OPPOSITION",
@@ -7978,11 +7978,11 @@
       "J_NO_1": [
         [
           "C11PALESTINIANJUSTICE",
-          "E"
+          "I"
         ],
         [
           "C11PALESTINIANRIGHTS",
-          "E"
+          "I"
         ],
         [
           "C12ZIONCRITICAL",
@@ -7994,7 +7994,7 @@
         ],
         [
           "C12EQUALRIGHTS",
-          "E"
+          "I"
         ],
         [
           "C13ISRAELEVIDENCE",
@@ -8018,7 +8018,7 @@
         ],
         [
           "C13ISRAELDISCRIMINATION",
-          "E"
+          "I"
         ],
         [
           "C13ISRAELNORMS",
@@ -8046,7 +8046,7 @@
       "I_1": [
         [
           "D1PERCEPTION",
-          "E"
+          "I"
         ],
         [
           "D1HATE",
@@ -8054,7 +8054,7 @@
         ],
         [
           "D1MANIFEST",
-          "E"
+          "I"
         ],
         [
           "D2ISRAELTARGET",
@@ -8080,7 +8080,7 @@
         ],
         [
           "E1RADICAL",
-          "E"
+          "I"
         ],
         [
           "E2ALLEGATION",
@@ -8206,7 +8206,7 @@
       "I_5": [
         [
           "E12CRIMINAL",
-          "N"
+          "A"
         ],
         [
           "E12CRIMINALDENIAL",
@@ -8270,7 +8270,7 @@
         ],
         [
           "N1DISCRIMINATION",
-          "N"
+          "E"
         ]
       ],
       "N_2": [
@@ -8458,7 +8458,7 @@
       "J_2": [
         [
           "A4DOGWHISTLE",
-          "N"
+          "I"
         ],
         [
           "A4ROTHSCHILD",
@@ -8930,11 +8930,11 @@
         ],
         [
           "A2CONSPIRACY",
-          "N"
+          "I"
         ],
         [
           "A2HIDDENPOWER",
-          "N"
+          "I"
         ],
         [
           "A2COLLECTIVEAGENDA",
@@ -9132,7 +9132,7 @@
         ],
         [
           "D2ISRAELTARGET",
-          "C"
+          "A"
         ],
         [
           "D2CONSPIRACY",
@@ -9448,7 +9448,7 @@
         ],
         [
           "N16ADVERSEEXPERIENCE",
-          "N"
+          "I"
         ],
         [
           "N17DISPROPORTIONATE",
@@ -9540,7 +9540,7 @@
         ],
         [
           "A4ISRAELEVIL",
-          "C"
+          "A"
         ],
         [
           "A4ISRAELINFLUENCE",
@@ -9588,11 +9588,11 @@
       "J_NO_1": [
         [
           "C11PALESTINIANJUSTICE",
-          "C"
+          "A"
         ],
         [
           "C11PALESTINIANRIGHTS",
-          "N"
+          "A"
         ],
         [
           "C12ZIONCRITICAL",
@@ -9608,7 +9608,7 @@
         ],
         [
           "C13ISRAELEVIDENCE",
-          "C"
+          "I"
         ],
         [
           "C13ISRAELINSTITUTIONS",
@@ -9616,11 +9616,11 @@
         ],
         [
           "C13ISRAELPOLICIES",
-          "C"
+          "I"
         ],
         [
           "C13ISRAELOPT",
-          "C"
+          "I"
         ],
         [
           "C13ISRAELREGION",
@@ -9644,7 +9644,7 @@
         ],
         [
           "C15REASONABLE",
-          "N"
+          "E"
         ],
         [
           "C15DOUBLESTANDARD",
@@ -9656,7 +9656,7 @@
       "I_1": [
         [
           "D1PERCEPTION",
-          "N"
+          "A"
         ],
         [
           "D1HATE",
@@ -9668,15 +9668,15 @@
         ],
         [
           "D2ISRAELTARGET",
-          "C"
+          "I"
         ],
         [
           "D2CONSPIRACY",
-          "C"
+          "I"
         ],
         [
           "D2COLLECTIVEBLAME",
-          "C"
+          "I"
         ],
         [
           "D2STEREOTYPE",
@@ -9694,7 +9694,7 @@
         ],
         [
           "E2ALLEGATION",
-          "C"
+          "I"
         ],
         [
           "E2DEHUMANIZATION",
@@ -9702,7 +9702,7 @@
         ],
         [
           "E2DEMONIZE",
-          "C"
+          "I"
         ],
         [
           "E2STEREOTYPE",
@@ -9710,11 +9710,11 @@
         ],
         [
           "E2COLLECTIVEPOWER",
-          "C"
+          "I"
         ],
         [
           "E2CONSPIRACY",
-          "C"
+          "I"
         ],
         [
           "E2CONTROLMEDIA",
@@ -9726,7 +9726,7 @@
         ],
         [
           "E2CONTROLGOV",
-          "C"
+          "I"
         ],
         [
           "E2CONTROLOTHER",
@@ -9770,7 +9770,7 @@
         ],
         [
           "E6GLOBALLOYALTY",
-          "O"
+          "A"
         ],
         [
           "E7JEWISHRIGHTS",
@@ -9886,7 +9886,7 @@
       "N_2": [
         [
           "N2CONSPIRACY",
-          "C"
+          "I"
         ],
         [
           "N2CONTROLMEDIA",
@@ -9898,7 +9898,7 @@
         ],
         [
           "N2CONTROLGOV",
-          "C"
+          "I"
         ],
         [
           "N2CONTROLOTHER",
@@ -9910,11 +9910,11 @@
         ],
         [
           "N4HIDDENCONSPIRACY",
-          "N"
+          "I"
         ],
         [
           "N4ISRAELHAND",
-          "C"
+          "I"
         ],
         [
           "N5LOYALTY",
@@ -9960,7 +9960,7 @@
       "N_NO_1": [
         [
           "N13ISRAELCRITICISM",
-          "C"
+          "I"
         ],
         [
           "N14SUPPRESSIONFREEDOM",
@@ -9972,11 +9972,11 @@
         ],
         [
           "N15HARSHCRITICISM",
-          "C"
+          "I"
         ],
         [
           "N16OPPOSITION",
-          "C"
+          "I"
         ],
         [
           "N16NATIONALISM",
@@ -9998,23 +9998,23 @@
         ],
         [
           "A2EVIL",
-          "C"
+          "A"
         ],
         [
           "A2CONSPIRACY",
-          "C"
+          "I"
         ],
         [
           "A2HIDDENPOWER",
-          "C"
+          "I"
         ],
         [
           "A2COLLECTIVEAGENDA",
-          "C"
+          "I"
         ],
         [
           "A2CONTROLGOV",
-          "C"
+          "I"
         ],
         [
           "A2CONTROLBANKS",
@@ -10068,7 +10068,7 @@
       "J_2": [
         [
           "A4DOGWHISTLE",
-          "O"
+          "I"
         ],
         [
           "A4ROTHSCHILD",
@@ -10076,11 +10076,11 @@
         ],
         [
           "A4ISRAELEVIL",
-          "E"
+          "I"
         ],
         [
           "A4ISRAELINFLUENCE",
-          "C"
+          "I"
         ],
         [
           "A5HOLOCAUSTDENIAL",
@@ -10132,7 +10132,7 @@
         ],
         [
           "C12ZIONCRITICAL",
-          "E"
+          "I"
         ],
         [
           "C12SOLUTIONS",
@@ -10212,11 +10212,11 @@
         ],
         [
           "D2COLLECTIVEBLAME",
-          "C"
+          "I"
         ],
         [
           "D2STEREOTYPE",
-          "C"
+          "I"
         ]
       ],
       "I_2": [
@@ -10230,7 +10230,7 @@
         ],
         [
           "E2ALLEGATION",
-          "C"
+          "I"
         ],
         [
           "E2DEHUMANIZATION",
@@ -10242,7 +10242,7 @@
         ],
         [
           "E2STEREOTYPE",
-          "C"
+          "I"
         ],
         [
           "E2COLLECTIVEPOWER",
@@ -10404,11 +10404,11 @@
       "N_1": [
         [
           "N1BELIEFS",
-          "C"
+          "I"
         ],
         [
           "N1NEGATIVEATTITUDE",
-          "C"
+          "I"
         ],
         [
           "N1HOSTILECONDUCT",
@@ -10422,7 +10422,7 @@
       "N_2": [
         [
           "N2CONSPIRACY",
-          "A"
+          "N"
         ],
         [
           "N2CONTROLMEDIA",
@@ -10530,7 +10530,7 @@
       "J_1": [
         [
           "A1ESSENTIAL",
-          "E"
+          "I"
         ],
         [
           "A2EVIL",
@@ -10638,7 +10638,7 @@
         ],
         [
           "B7COLLECTIVEBLAME",
-          "N"
+          "A"
         ],
         [
           "B7ISRAELAGENT",
@@ -11276,7 +11276,7 @@
         ],
         [
           "D2ISRAELTARGET",
-          "C"
+          "I"
         ],
         [
           "D2CONSPIRACY",
@@ -11284,7 +11284,7 @@
         ],
         [
           "D2COLLECTIVEBLAME",
-          "N"
+          "A"
         ],
         [
           "D2STEREOTYPE",
@@ -11302,7 +11302,7 @@
         ],
         [
           "E2ALLEGATION",
-          "C"
+          "A"
         ],
         [
           "E2DEHUMANIZATION",
@@ -11310,7 +11310,7 @@
         ],
         [
           "E2DEMONIZE",
-          "C"
+          "A"
         ],
         [
           "E2STEREOTYPE",
@@ -11684,7 +11684,7 @@
         ],
         [
           "A4ISRAELEVIL",
-          "C"
+          "I"
         ],
         [
           "A4ISRAELINFLUENCE",
@@ -11812,7 +11812,7 @@
         ],
         [
           "D2ISRAELTARGET",
-          "C"
+          "A"
         ],
         [
           "D2CONSPIRACY",
@@ -11926,11 +11926,11 @@
         ],
         [
           "E8DOUBLESTANDARD",
-          "N"
+          "A"
         ],
         [
           "E8UNIQUEDEMAND",
-          "N"
+          "A"
         ],
         [
           "E9CLASSICSYMBOL",
@@ -11968,7 +11968,7 @@
         ],
         [
           "E12CRIMINALMATERIAL",
-          "N"
+          "A"
         ],
         [
           "E13TARGET",
@@ -12116,7 +12116,7 @@
         ],
         [
           "N15HARSHCRITICISM",
-          "N"
+          "E"
         ],
         [
           "N16OPPOSITION",
@@ -12268,11 +12268,11 @@
       "J_NO_1": [
         [
           "C11PALESTINIANJUSTICE",
-          "E"
+          "I"
         ],
         [
           "C11PALESTINIANRIGHTS",
-          "E"
+          "I"
         ],
         [
           "C12ZIONCRITICAL",
@@ -12284,7 +12284,7 @@
         ],
         [
           "C12EQUALRIGHTS",
-          "E"
+          "I"
         ],
         [
           "C13ISRAELEVIDENCE",
@@ -12308,7 +12308,7 @@
         ],
         [
           "C13ISRAELDISCRIMINATION",
-          "E"
+          "I"
         ],
         [
           "C13ISRAELNORMS",
@@ -12336,7 +12336,7 @@
       "I_1": [
         [
           "D1PERCEPTION",
-          "E"
+          "I"
         ],
         [
           "D1HATE",
@@ -12344,7 +12344,7 @@
         ],
         [
           "D1MANIFEST",
-          "E"
+          "I"
         ],
         [
           "D2ISRAELTARGET",
@@ -12370,7 +12370,7 @@
         ],
         [
           "E1RADICAL",
-          "E"
+          "I"
         ],
         [
           "E2ALLEGATION",
@@ -12432,7 +12432,7 @@
         ],
         [
           "E4HOLOCAUSTINTENT",
-          "N"
+          "I"
         ],
         [
           "E5HOLOCAUSTINVENT",
@@ -12496,7 +12496,7 @@
       "I_5": [
         [
           "E12CRIMINAL",
-          "N"
+          "A"
         ],
         [
           "E12CRIMINALDENIAL",
@@ -12560,7 +12560,7 @@
         ],
         [
           "N1DISCRIMINATION",
-          "N"
+          "E"
         ]
       ],
       "N_2": [
@@ -12748,7 +12748,7 @@
       "J_2": [
         [
           "A4DOGWHISTLE",
-          "N"
+          "I"
         ],
         [
           "A4ROTHSCHILD",
