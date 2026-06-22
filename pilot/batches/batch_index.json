@@ -1,0 +1,54 @@
+{
+  "I_1": {
+    "batch_id": "msgbatch_01XLS6HXcoy85yEsQxF96Uyh",
+    "status": "saved"
+  },
+  "I_2": {
+    "batch_id": "msgbatch_0131pEP7eag4YKjVAiuqoPcC",
+    "status": "saved"
+  },
+  "I_3": {
+    "batch_id": "msgbatch_01YUcZbiyq5sffxyE6YtJKPA",
+    "status": "in_progress"
+  },
+  "I_4": {
+    "batch_id": "msgbatch_0127ynjwy5jikESR2JVayNu7",
+    "status": "saved"
+  },
+  "I_5": {
+    "batch_id": "msgbatch_0149b1FLRB9tjsgkjVYJAYfe",
+    "status": "saved"
+  },
+  "I_NO_1": {
+    "batch_id": "msgbatch_016FDWHb7dyz9PMgdDYfU5BP",
+    "status": "saved"
+  },
+  "N_1": {
+    "batch_id": "msgbatch_01CXrjeixxkGHHcMkHKJrQSi",
+    "status": "saved"
+  },
+  "N_2": {
+    "batch_id": "msgbatch_01MbRJoJUjoraC859gEKjpFu",
+    "status": "in_progress"
+  },
+  "N_NO_1": {
+    "batch_id": "msgbatch_01WitrAsR1huKqwhnNSNbmPA",
+    "status": "in_progress"
+  },
+  "J_1": {
+    "batch_id": "msgbatch_01BhEWhaUfBJBMYrgAwog4Go",
+    "status": "saved"
+  },
+  "J_2": {
+    "batch_id": "msgbatch_017FQbU1ZeCqiu2fKkswtN1S",
+    "status": "in_progress"
+  },
+  "J_3": {
+    "batch_id": "msgbatch_01Q7Hoew4R6CHHhFtF7GRb3v",
+    "status": "in_progress"
+  },
+  "J_NO_1": {
+    "batch_id": "msgbatch_01EWDWxDMY8SrqhUuDSkj4pz",
+    "status": "in_progress"
+  }
+}

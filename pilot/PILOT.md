@@ -2,6 +2,8 @@
 
 As a proof-of-concept, 
 
+progressive block
+
 ## Data
 
 The Kennedy et al. (2022) *Measuring Hate Speech* dataset, developed at UC Berkeley, consists of approximately 136,000 social media posts annotated by human coders for hate speech across a range of target groups with a continuous hate speech score derived from multi-coder aggregation. As a pilot validation of the proposed multi-framework antisemitism measurement instrument, the instrument's codebook (spanning the IHRA Working Definition, the Nexus Document, and the Jerusalem Declaration on Antisemitism) is applied to the approximately 1,874 Jewish-targeted texts in the *Measuring Hate Speech* dataset using large language model batch inference, generating per-code labels for each text across all three definitional frameworks. The resulting labels are evaluated across a series of predictive models designed to test whether the LLM-generated labels are semantically coherent, predictive of an external hate speech criterion, sensitive to definitional framework, and capable of recovering the `hate_speech_score` in the *Measuring Hate Speech* dataset as a benchmark. 
