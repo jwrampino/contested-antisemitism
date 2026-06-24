@@ -50,5 +50,61 @@
   "J_NO_1": {
     "batch_id": "msgbatch_01EWDWxDMY8SrqhUuDSkj4pz",
     "status": "in_progress"
-  }
+  },
+  "I_2_api_recovery": {
+    "batch_id": "msgbatch_01GBFijQCUj9yQEu8gzj9uf3",
+    "status": "in_progress",
+    "block": "I_2",
+    "type": "api_recovery"
+  },
+  "I_NO_1_api_recovery": {
+    "batch_id": "msgbatch_01YTJKAMbfJEC8W5HQRv4d3D",
+    "status": "in_progress",
+    "block": "I_NO_1",
+    "type": "api_recovery"
+  },
+  "N_1_api_recovery": {
+    "batch_id": "msgbatch_014yVfZEBiRMSUs4X8RPUEkT",
+    "status": "in_progress",
+    "block": "N_1",
+    "type": "api_recovery"
+  },
+  "N_2_api_recovery": {
+    "batch_id": "msgbatch_01RHN3hkf822L35hsxehMoHZ",
+    "status": "in_progress",
+    "block": "N_2",
+    "type": "api_recovery"
+  },
+  "N_NO_1_api_recovery": {
+    "batch_id": "msgbatch_01WraeWX76pKS55TPAErb7gv",
+    "status": "in_progress",
+    "block": "N_NO_1",
+    "type": "api_recovery"
+  },
+  "J_2_api_recovery": {
+    "batch_id": "msgbatch_01DEoUEa6ZAzdbVJhrGZHvAT",
+    "status": "in_progress",
+    "block": "J_2",
+    "type": "api_recovery"
+  },
+  "J_3_api_recovery": {
+    "batch_id": "msgbatch_01TnLnj5Gchk3Nhmj3csqC3H",
+    "status": "in_progress",
+    "block": "J_3",
+    "type": "api_recovery"
+  },
+  "J_NO_1_api_recovery": {
+    "batch_id": "msgbatch_01Fjmya1jVfLMi8ZVoxFkw3V",
+    "status": "in_progress",
+    "block": "J_NO_1",
+    "type": "api_recovery"
+  },
+  "I_2_api_recovery_merged": true,
+  "I_NO_1_api_recovery_merged": true,
+  "N_1_api_recovery_merged": true,
+  "N_2_api_recovery_merged": true,
+  "N_NO_1_api_recovery_merged": true,
+  "J_2_api_recovery_merged": true,
+  "J_3_api_recovery_merged": true,
+  "J_NO_1_api_recovery_merged": true
 }
