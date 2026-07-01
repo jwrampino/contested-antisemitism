@@ -1,5 +1,16 @@
 # antisemitism_classifier
-Designing an ML Classification Method to Identify Evolving and Complex Expressions of Antisemitism in Online Discourse
+A Multi-Definitional Framework for Antisemitism and Comparative Platform Enforcement
+
+| Section | Subsections |
+|---|---|
+| [Abstract](#abstract) |
+| [Literature Review](#literature-review) | |
+| [Methodology](#methodology) | Pilot · Codebook |
+| [Repository Structure](#repository-structure) |
+| [Instructions](#instructions) | |
+| [Results](#results) |
+| [Discussion](#Discussion) |
+| Job IDs | |
 
 ## Abstract
 
@@ -40,7 +51,9 @@ reiger et al              https://doi.org/10.1177/20563051211052906
 
 [Pilot](https://github.com/jwrampino/antisemitism_classifier/blob/main/pilot/PILOT.md)
 
-[Code](https://github.com/jwrampino/antisemitism_classifier/blob/main/CODEBOOK.md)
+[Codebook](https://github.com/jwrampino/antisemitism_classifier/blob/main/CODEBOOK.md)
+
+## Repository Structure
 
 ## Instructions
 
