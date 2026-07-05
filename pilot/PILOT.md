@@ -1,56 +1,64 @@
 # Pilot
 
-As a proof-of-concept, 
-
-progressive block
-
 ## Data
 
-The Kennedy et al. (2022) *Measuring Hate Speech* dataset, developed at UC Berkeley, consists of approximately 136,000 social media posts annotated by human coders for hate speech across a range of target groups with a continuous hate speech score derived from multi-coder aggregation. As a pilot validation of the proposed multi-framework antisemitism measurement instrument, the instrument's codebook (spanning the IHRA Working Definition, the Nexus Document, and the Jerusalem Declaration on Antisemitism) is applied to the approximately 1,874 Jewish-targeted texts in the *Measuring Hate Speech* dataset using large language model batch inference, generating per-code labels for each text across all three definitional frameworks. The resulting labels are evaluated across a series of predictive models designed to test whether the LLM-generated labels are semantically coherent, predictive of an external hate speech criterion, sensitive to definitional framework, and capable of recovering the `hate_speech_score` in the *Measuring Hate Speech* dataset as a benchmark. 
+The *Measuring Hate Speech* dataset, developed at UC Berkeley, consists of approximately 136,000 social media posts annotated by human coders for hate speech across a range of target groups with a continuous hate speech score derived from multi-coder aggregation. As a pilot validation of the proposed multi-definitional construct, data labeled using the codebook is applied to the approximately 1,874 Jewish-targeted texts in the *Measuring Hate Speech* dataset using large language model batch inference, generating code-level labels for each text across all three definitional frameworks. The LLM-generated labels are benchmarked on whether they are capable of recovering the `hate_speech_score` variable in the *Measuring Hate Speech* dataset.
 
-The `hate_speech_score` is a continuous latent trait estimate derived from a battery of annotator-level ordinal ratings spanning sentiment, respect, insult, humiliation, status, dehumanization, violence, genocide, and hate speech, aggregated across annotators with correction for annotator severity bias. The additional ordinal benchmark used in this pilot validation is derived by binning the continuous score into supportive speech (< -1), neutral or ambiguous (-1 to 0.5), and hate speech (> 0.5), with the binary benchmark derived by classifying texts scoring above 0.5 as hate speech and all others as not.
+The dataset's `hate_speech_score` is a continuous estimate derived from annotator-level ordinal ratings across sentiment, respect, insult, humiliation, status, dehumanization, violence, genocide, and hate speech, aggregated across annotators with correction for annotator severity bias. The ordinal benchmark is derived by binning the continuous score into supportive speech (< -1), neutral or ambiguous (-1 to 0.5), and hate speech (> 0.5), based on the dataset's reported approximate thresholds. A hate speech binary is then derived further by classifying texts scoring above 0.5 as hate speech, and all others as not.
 
-Text embeddings are generated using the all-MiniLM-L6-v2 sentence transformer model, producing 384-dimensional dense vectors capturing the semantic content of each text. For each code, the LLM-generated response scale value (N, E, O, C, I, A) is one-hot encoded across the six response categories, producing a six-dimensional binary vector per code.
+Text embeddings are generated using the all-MiniLM-L6-v2 sentence transformer model, producing 384-dimensional dense vectors capturing the semantic content of each text. For each code, the LLM-generated response scale value (N, E, I, A) is one-hot encoded across E, I, and A, dropping N as the reference category, producing a three-dimensional binary vector per code. All supervised models use stratified 5-fold cross-validation with folds stratified on the binary hate speech label to maintain the approximately 25% positive class rate across all folds. Where text embeddings are used alongside code features, (dimensionality reduction!!!!!!) is applied to the combined feature matrix within each training fold 
 
-For the sanity check model (M1), all-definition response scale values are one-hot encoded across the six response categories for each code and concatenated with the 384-dimensional sentence embeddings; the resulting feature matrix is reduced using principal component analysis prior to model fitting, with the binary hate speech score as the prediction target.
+ project onto the held-out fold to prevent leakage.
 
-For the internal construct models (M2), text embeddings alone serve as input features, with response scale values across all codes for the relevant definition as the prediction target.
 
-For the external criterion baseline models (M3), text embeddings alone predict the hate speech benchmarks without any code features, establishing the predictive ceiling of semantic content independently of the instrument.
-
-For the external criterion models (M4), response scale values are one-hot encoded across the six response categories for each code and concatenated with the 384-dimensional sentence embeddings; the resulting feature matrix is reduced using principal component analysis prior to model fitting to address the high-dimensional feature space relative to the 1,874-text sample. Predictive performance for M1, M2, M3, and M4 is evaluated using stratified 5-fold cross-validation with folds stratified on the binary hate speech label to maintain the approximately 25% positive class rate across all folds.
-
-For the NLI convergent validity models (M5), each codebook definition text is used directly as a hypothesis against the social media post as premise, with a separate NLI model returning a continuous entailment score per code per text independently of the response scale pipeline. These per-code entailment scores serve as input features to a supervised model predicting `hate_speech_score` using the same 5-fold stratified cross-validation procedure, allowing direct comparison between the response scale and NLI operationalizations of the same codebook.
 
 ## Models
 
-| Model ID | Task | Definition | Code Subset | Input Features | Target | Rationale |
-|---|---|---|---|---|---|---|
-| M1 | Sanity Check | All | YES + NO | All-definition response scale values + text embeddings | Binary hate speech score | Confirms instrument produces above-chance signal |
-| M2a | Internal Construct | IHRA | YES only | Text embeddings | IHRA response scale values | Tests embedding-code coherence for IHRA YES codes |
-| M2b | Internal Construct | IHRA | YES + NO | Text embeddings | IHRA response scale values | Tests whether NO codes change embedding-code coherence vs M2a |
-| M2c | Internal Construct | Nexus | YES only | Text embeddings | Nexus response scale values | Tests embedding-code coherence for Nexus YES codes |
-| M2d | Internal Construct | Nexus | YES + NO | Text embeddings | Nexus response scale values | Tests whether NO codes change embedding-code coherence vs M2c |
-| M2e | Internal Construct | JDA | YES only | Text embeddings | JDA response scale values | Tests embedding-code coherence for JDA YES codes |
-| M2f | Internal Construct | JDA | YES + NO | Text embeddings | JDA response scale values | Tests whether NO codes change embedding-code coherence vs M2e |
-| M2g | Internal Construct | All | YES only | Text embeddings | All-definition response scale values | Tests joint embedding-code coherence across definitions |
-| M2h | Internal Construct | All | YES + NO | Text embeddings | All-definition response scale values | Tests whether NO codes change joint embedding-code coherence vs M2g |
-| M3a | External Criterion Baseline | — | — | Text embeddings only | Binary hate speech score | Embeddings-only baseline against binary benchmark |
-| M3b | External Criterion Baseline | — | — | Text embeddings only | Ordinal hate speech score | Embeddings-only baseline against ordinal benchmark |
-| M3c | External Criterion Baseline | — | — | Text embeddings only | Continuous hate speech score | Embeddings-only baseline against continuous benchmark |
-| M4a | External Criterion | IHRA | YES only | IHRA response scale values + text embeddings | Ordinal hate speech score | Core validation: tests whether IHRA codes predict external criterion |
-| M4b | External Criterion | IHRA | YES + NO | IHRA response scale values + text embeddings | Ordinal hate speech score | Tests whether IHRA NO codes affect external criterion prediction vs M4a |
-| M4c | External Criterion | Nexus | YES only | Nexus response scale values + text embeddings | Ordinal hate speech score | Tests whether Nexus codes predict external criterion; cross-definition comparison with M4a |
-| M4d | External Criterion | Nexus | YES + NO | Nexus response scale values + text embeddings | Ordinal hate speech score | Tests whether Nexus NO codes affect external criterion prediction vs M4c |
-| M4e | External Criterion | JDA | YES only | JDA response scale values + text embeddings | Ordinal hate speech score | Tests whether JDA codes predict external criterion; cross-definition comparison with M4a |
-| M4f | External Criterion | JDA | YES + NO | JDA response scale values + text embeddings | Ordinal hate speech score | Tests whether JDA NO codes affect external criterion prediction vs M4e |
-| M4g | External Criterion | All | YES only | All-definition response scale values + text embeddings | Ordinal hate speech score | Tests joint cross-definition prediction; identifies dominant definitional framework |
-| M4h | External Criterion | All | YES + NO | All-definition response scale values + text embeddings | Ordinal hate speech score | Tests whether NO codes affect joint prediction vs M4g |
-| M5a | NLI Convergent Validity | IHRA | YES + NO | IHRA NLI entailment scores | Continuous hate speech score | Tests whether IHRA NO codes affect approximation vs M5a |
-| M5b | NLI Convergent Validity | Nexus | YES + NO | Nexus NLI entailment scores | Continuous hate speech score | Tests whether Nexus NO codes affect approximation vs M5c |
-| M5c | NLI Convergent Validity | JDA | YES + NO | JDA NLI entailment scores | Continuous hate speech score | Tests whether JDA NO codes affect approximation vs M5e |
-| M5d | NLI Convergent Validity | All | YES + NO | All-definition NLI entailment scores | Continuous hate speech score | Tests whether NO codes affect joint approximation vs M5g |
+The pilot uses a hierarchical block ablation design to evaluate the incremental and convergent validity of the instrument across separate and joint definitions in which each stage adds or substitutes a feature set.
 
-by platform post-analysis
+**Sanity check.** All-definition response scale values (one-hot encoded, N dropped) concatenated with text embeddings, predicting the binary hate speech score. Confirms the instrument produces above-chance signal before any further decomposition.
+
+**Embeddings baseline.** Text embeddings alone predict the binary, ordinal, and continuous hate speech benchmarks without any code features. Establishes the predictive ceiling of semantic content independently of the instrument, serving as the baseline against which all code-based stages are compared.
+
+**Internal construct validity.** Text embeddings predict response scale values for each definition (YES codes only, then YES and NO codes together) and jointly across all three definitions. Tests whether the semantic content of a text is coherent with its instrument labels, and whether including NO codes changes that coherence. A low predictive relationship between embeddings and labels would indicate the instrument captures structured features beyond raw semantic content.
+
+**Codes only.** Response scale values alone (no text embeddings) predict the ordinal hate speech score, evaluated separately for each definition (YES only, then YES and NO) and jointly. Tests whether the structured label output of the instrument independently predicts an external criterion without any access to the underlying text, the strongest standalone validity test for the codebook.
+
+**Codes and embeddings.** Response scale values concatenated with text embeddings predict the ordinal hate speech score, evaluated separately for each definition (YES only, then YES and NO) and jointly. The incremental gain over the embeddings baseline quantifies the contribution of the instrument labels beyond semantic content, and the incremental gain over codes only quantifies the contribution of semantic content beyond the instrument labels.
+
+**NLI convergent validity.** Each codebook definition text is used directly as a hypothesis against the social media post as premise, with an NLI model returning a continuous entailment score per code per text independently of the response scale pipeline. These per-code entailment scores predict the continuous `hate_speech_score`, evaluated separately for each definition and jointly. Convergence between the NLI operationalization and the response scale operationalization on the same codebook, derived through methodologically independent processes, constitutes convergent validity evidence.
+
+| Stage | Definition | Code Subset | Input Features | Target |
+|---|---|---|---|---|
+| Sanity check | All | YES + NO | Response scale values + embeddings | Binary |
+| Embeddings baseline | — | — | Embeddings only | Binary, ordinal, continuous |
+| Internal construct | IHRA | YES only | Embeddings | IHRA response scale values |
+| Internal construct | IHRA | YES + NO | Embeddings | IHRA response scale values |
+| Internal construct | Nexus | YES only | Embeddings | Nexus response scale values |
+| Internal construct | Nexus | YES + NO | Embeddings | Nexus response scale values |
+| Internal construct | JDA | YES only | Embeddings | JDA response scale values |
+| Internal construct | JDA | YES + NO | Embeddings | JDA response scale values |
+| Internal construct | All | YES only | Embeddings | All response scale values |
+| Internal construct | All | YES + NO | Embeddings | All response scale values |
+| Codes only | IHRA | YES only | IHRA response scale values | Ordinal |
+| Codes only | IHRA | YES + NO | IHRA response scale values | Ordinal |
+| Codes only | Nexus | YES only | Nexus response scale values | Ordinal |
+| Codes only | Nexus | YES + NO | Nexus response scale values | Ordinal |
+| Codes only | JDA | YES only | JDA response scale values | Ordinal |
+| Codes only | JDA | YES + NO | JDA response scale values | Ordinal |
+| Codes only | All | YES only | All response scale values | Ordinal |
+| Codes only | All | YES + NO | All response scale values | Ordinal |
+| Codes + embeddings | IHRA | YES only | IHRA response scale values + embeddings | Ordinal |
+| Codes + embeddings | IHRA | YES + NO | IHRA response scale values + embeddings | Ordinal |
+| Codes + embeddings | Nexus | YES only | Nexus response scale values + embeddings | Ordinal |
+| Codes + embeddings | Nexus | YES + NO | Nexus response scale values + embeddings | Ordinal |
+| Codes + embeddings | JDA | YES only | JDA response scale values + embeddings | Ordinal |
+| Codes + embeddings | JDA | YES + NO | JDA response scale values + embeddings | Ordinal |
+| Codes + embeddings | All | YES only | All response scale values + embeddings | Ordinal |
+| Codes + embeddings | All | YES + NO | All response scale values + embeddings | Ordinal |
+| NLI convergent validity | IHRA | YES + NO | IHRA NLI entailment scores | Continuous |
+| NLI convergent validity | Nexus | YES + NO | Nexus NLI entailment scores | Continuous |
+| NLI convergent validity | JDA | YES + NO | JDA NLI entailment scores | Continuous |
+| NLI convergent validity | All | YES + NO | All NLI entailment scores | Continuous |
 
 ## Results
