@@ -1,5 +1,25 @@
 name: anti
 channels:
-  - defaults
+  - conda-forge
 dependencies:
-  - 
+  - python=3.11.14
+  - pip=25.3
+  - pandas=2.3.3
+  - numpy
+  - scipy
+  - scikit-learn
+  - statsmodels=0.14.6
+  - matplotlib=3.10.8
+  - pyarrow=21.0.0
+  - ipykernel=6.31.0
+  - pip:
+      - requests==2.32.5
+      - python-dotenv==1.2.2
+      - zstandard==0.25.0
+      - datasets==4.4.1
+      - huggingface-hub==0.36.2
+      - anthropic==0.109.2
+      - openai==2.41.1
+      - shap==0.51.0
+      - xgboost==3.2.0
+      - mord==0.7
