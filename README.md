@@ -10,7 +10,7 @@ A Multi-Definitional Framework for Antisemitism and Comparative Platform Enforce
 | [Repository Structure](#repository-structure) |
 | [Instructions](#instructions) | |
 | [Results](#results) |
-| [Discussion](#Discussion) |
+| [Discussion](#discussion) |
 | Job IDs | |
 
 ## Abstract
@@ -27,13 +27,6 @@ Culbert                   https://arxiv.org/abs/2307.03556
 jikeli                    https://doi.org/10.36190/2021.14  
 becker                    https://doi.org/10.3389/fcomm.2025.1729279 | https://doi.org/10.26613/jca/5.1.105  
 Zannettou                 https://arxiv.org/abs/1809.01644  
-  
-mechanistic interpretability  
-leask                     https://arxiv.org/abs/2502.04878  
-sharkey                   https://arxiv.org/pdf/2501.16496  
-Bricken                   https://transformer-circuits.pub/2023/monosemantic-features  
-Kantamneni et al          https://arxiv.org/abs/2502.16681  
-Rahman                    https://ssrn.com/abstract=6563281  
   
 multimodal  
 Chandra et al (2021)      https://doi.org/10.1145/3447535.3462502  
