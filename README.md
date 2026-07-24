@@ -5,7 +5,6 @@ A Multi-Definitional Framework for Antisemitism and Comparative Platform Enforce
 |---|---|
 | [Proposal Draft](https://www.overleaf.com/read/hyxgchsjpvwz#91c7ce) | |
 | [Abstract](#abstract) |
-| [Literature Review](#literature-review) | |
 | [Methodology](#methodology) | [Pilot](#pilot) · [Codebook](#codebook) |
 | [Repository Structure](#repository-structure) |
 | [Instructions](#instructions) | |
@@ -15,31 +14,6 @@ A Multi-Definitional Framework for Antisemitism and Comparative Platform Enforce
 
 ## Abstract
 
-## Literature Review
-  
-Anti-semitism  
-Chandra et al (2021)      https://doi.org/10.1145/3447535.3462502  
-Salhi and Goldhorn (2025) https://doi.org/10.11647/obp.0447.06  
-Kennedy et al. (2020)     https://hatespeech.berkeley.edu/  
-Liu et al. 2024           https://arxiv.org/pdf/2405.03794  
-Reiger et al              https://doi.org/10.1177/20563051211052906  
-Culbert                   https://arxiv.org/abs/2307.03556  
-jikeli                    https://doi.org/10.36190/2021.14  
-becker                    https://doi.org/10.3389/fcomm.2025.1729279 | https://doi.org/10.26613/jca/5.1.105  
-Zannettou                 https://arxiv.org/abs/1809.01644  
-  
-multimodal  
-Chandra et al (2021)      https://doi.org/10.1145/3447535.3462502  
-Salhi and Goldhorn (2025) https://doi.org/10.11647/obp.0447.06  
-  
-social media (far-right attitudes)
-colley and moore          https://doi.org/10.1177/1461444820948803
-reiger et al              https://doi.org/10.1177/20563051211052906
-
-
-llm labeling
-
-  
 ## Methodology
 
 ### [Pilot](https://github.com/jwrampino/antisemitism_classifier/blob/main/pilot/PILOT.md)
@@ -67,7 +41,8 @@ antisemitism_classifier/
 │   │   ├── results/                                # Labels by batch
 │   │   └── batch_index.json                        # API query index
 │   ├── data/
-│   │   └── ucberkeley-dlab_target_jewish.csv       # Pilot dataset
+│   │   ├── ucberkeley-dlab_target_jewish.csv       # Pilot dataset
+│   │   └── nli_zeroshot_scores.csv                 # Pilot NLI scores
 │   ├── features/                                 # Features for all pilot models
 │   │   ├── pca/
 │   │   ├── raw_scaled/
@@ -79,7 +54,7 @@ antisemitism_classifier/
 │   ├── config.py                                 # Batch instructions
 │   ├── label.ipynb                               # LLM labeling notebook
 │   ├── models.ipynb                              # Pilot models
-│   ├── nli.ipynb                                 # Pilot NLI models
+│   ├── nli.ipynb                                 # NLI scoring colab
 │   ├── PILOT.md
 │   └── viz.ipynb
 ├── .gitignore
