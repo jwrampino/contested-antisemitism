@@ -1,5 +1,5 @@
-.env
+*.env
+*.jsonl
+*.html
 __pycache__/
-.jsonl
 collection/data/
-.html
