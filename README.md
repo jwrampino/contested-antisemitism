@@ -1,5 +1,5 @@
 # antisemitism_classifier
-A Multi-Definitional Framework for Antisemitism and Comparative Platform Enforcement
+Detecting Antisemitism: Multi-Aspect Operationalization of a Contested Concept via Natural Language Inference
 
 | Section | Subsections |
 |---|---|
@@ -10,15 +10,17 @@ A Multi-Definitional Framework for Antisemitism and Comparative Platform Enforce
 | [Instructions](#instructions) | |
 | [Results](#results) |
 | [Discussion](#discussion) |
-| Job IDs | |
+| [Job IDs](#job-ids) | |
 
 ## Abstract
 
 ## Methodology
 
+### [Codebook](https://github.com/jwrampino/antisemitism_classifier/blob/main/CODEBOOK.md)
+
 ### [Pilot](https://github.com/jwrampino/antisemitism_classifier/blob/main/pilot/PILOT.md)
 
-### [Codebook](https://github.com/jwrampino/antisemitism_classifier/blob/main/CODEBOOK.md)
+### [Data Collection](https://github.com/jwrampino/antisemitism_classifier/blob/main/collection/)
 
 ## Repository Structure
 
@@ -73,3 +75,5 @@ conda activate anti
 ## Results
 
 ## Discussion
+
+## Job IDs
