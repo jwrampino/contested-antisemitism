@@ -1,4 +1,4 @@
-# antisemitism_classifier
+# contested-antisemitism
 Detecting Antisemitism: Multi-Aspect Operationalization of a Contested Concept via Natural Language Inference
 
 | Section | Subsections |
@@ -16,16 +16,16 @@ Detecting Antisemitism: Multi-Aspect Operationalization of a Contested Concept v
 
 ## Methodology
 
-### [Codebook](https://github.com/jwrampino/antisemitism_classifier/blob/main/CODEBOOK.md)
+### [Codebook](https://github.com/jwrampino/contested-antisemitism/blob/main/CODEBOOK.md)
 
-### [Pilot](https://github.com/jwrampino/antisemitism_classifier/blob/main/pilot/PILOT.md)
+### [Pilot](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/PILOT.md)
 
-### [Data Collection](https://github.com/jwrampino/antisemitism_classifier/blob/main/collection/)
+### [Data Collection](https://github.com/jwrampino/contested-antisemitism/blob/main/collection/)
 
 ## Repository Structure
 
 ```
-antisemitism_classifier/
+contested-antisemitism/
 ├── collection/                                 # Data collection pipeline
 │   ├── data/
 │   │   ├── 4chan/
@@ -44,7 +44,9 @@ antisemitism_classifier/
 │   │   └── batch_index.json                        # API query index
 │   ├── data/
 │   │   ├── ucberkeley-dlab_target_jewish.csv       # Pilot dataset
-│   │   └── nli_zeroshot_scores.csv                 # Pilot NLI scores
+│   │   ├── nli_zeroshot_scores.csv                 # Pilot NLI scores
+│   │   ├── 
+│   │   ├── 
 │   ├── features/                                 # Features for all pilot models
 │   │   ├── pca/
 │   │   ├── raw_scaled/
@@ -53,14 +55,15 @@ antisemitism_classifier/
 │   │   └── targets_and_folds.csv
 │   ├── test/                                     # Intra and inter-LLM agreement
 │   ├── viz/
-│   ├── config.py                                 # Batch instructions
-│   ├── label.ipynb                               # LLM labeling notebook
-│   ├── models.ipynb                              # Pilot models
+│   ├── config.py                                 # Batch instructions for LLMs
+│   ├── nli_config.py                             # Hypotheses for NLI (_prefix)
+│   ├── label.ipynb                               # LLM batch labeling
 │   ├── nli.ipynb                                 # NLI scoring colab
-│   ├── PILOT.md
-│   └── viz.ipynb
+│   ├── reranker.ipynb                            # Reranker test colab
+│   ├── models.ipynb                              # Pilot analysis and ablation study
+│   ├── PILOT_CODEBOOK.md                         # Initial codebook for pilot configs
+│   └── PILOT.md                                  # Outlines contents of models.ipynb
 ├── .gitignore
-├── CODEBOOK.md
 ├── README.md
 └── environment.yml
 ```
