@@ -62,7 +62,7 @@ contested-antisemitism/
 │   ├── reranker.ipynb                            # Reranker test colab
 │   ├── models.ipynb                              # Pilot analysis and ablation study
 │   ├── PILOT_CODEBOOK.md                         # Initial codebook for pilot configs
-│   └── PILOT.md                                  # Outlines contents of models.ipynb
+│   └── PILOT_MODELS.md                           # Outlines contents of models.ipynb
 ├── .gitignore
 ├── README.md
 └── environment.yml

@@ -30,25 +30,25 @@ Every analysis and ablation stage in the notebook, in order of appearance, with 
 | Embeddings baseline | PCA vs. raw embeddings | Binary, Ordinal, Continuous | LogReg vs. XGBoost (binary); Ordinal Logit, Multinomial, OvR, OvO, XGBoost-threshold (ordinal); Ridge vs. XGBoost Regressor (continuous) | [21](#cell-21), [22](#cell-22), [23](#cell-23) |
 | Internal construct validity | Embeddings only, per definition and code subset (yes-only vs. yes-and-no) | LLM's own code labels (E/I/A) | Logistic Regression, MultiOutputClassifier, XGBoost | [25](#cell-25), [26](#cell-26), [27](#cell-27), [28](#cell-28), [29](#cell-29) |
 | Label collinearity check | Code features (YES vs. NO pairs) | n/a (diagnostic, not predictive) | Correlation matrix, within-block vs. across-block significance test | [31](#cell-31), [32](#cell-32), [33](#cell-33), [34](#cell-34) |
-| Codes only | Code scale, per definition and code subset | Ordinal | Ordinal Logit, Multinomial, OvR, OvO, XGBoost-threshold; multinomial coefficient extraction; permutation control | [39](#cell-39), [40](#cell-40), [41](#cell-41) |
-| Codes and embeddings | Code scale + PCA/raw embeddings, per definition and code subset | Ordinal | Same ordinal model set as Codes Only | [43](#cell-43) |
-| NLI ablation, v1 | NLI (v1) alone, plus embeddings, plus codes, plus codes+embeddings, all definitions | Continuous, Ordinal, Binary | Ridge, Ordinal Logit, Multinomial, OvR, OvO, Logistic Regression | [45](#cell-45) |
-| LLM label vs. NLI relationship, v1 | NLI (v1) entailment score vs. LLM ordinal label | n/a (diagnostic) | OLS, Spearman correlation, high-entailment proportion by label | [46](#cell-46) |
-| LLM vs. NLI disagreement, v1 | Pooled LLM labels and NLI (v1) scores | n/a (diagnostic) | Type 1/Type 2 disagreement flagging | [48](#cell-48) |
-| NLI ablation, v2 | Same structure as v1 ablation, NLI (v2) | Continuous, Ordinal, Binary | Same model set as v1 ablation | [50](#cell-50) |
-| LLM label vs. NLI relationship, v2 | NLI (v2) entailment score vs. LLM ordinal label | n/a (diagnostic) | Same as v1 relationship diagnostic | [51](#cell-51) |
-| LLM vs. NLI disagreement, v2 | Pooled LLM labels and NLI (v2) scores | n/a (diagnostic) | Same as v1 disagreement analysis | [52](#cell-52) |
-| Multicollinearity, v1 vs. v2 | NLI (v1, v2) entailment scores, codes, raw embeddings | n/a (diagnostic) | Fast VIF via correlation matrix inversion | [54](#cell-54) |
-| Per-code disagreement, v1 and v2 | LLM label vs. NLI entailment, per code | n/a (diagnostic) | Spearman correlation per code, hypothesis text inspection | [55](#cell-55), [56](#cell-56), [57](#cell-57) |
-| NLI ablation, hypothesis-fixed | NLI (v1_prefix, v2_prefix) alone, plus embeddings, plus codes, plus codes+embeddings | Continuous, Ordinal, Binary | Same model set as earlier NLI ablations | [59](#cell-59) |
-| LLM label vs. NLI relationship, hypothesis-fixed | NLI (v1_prefix, v2_prefix) entailment vs. LLM ordinal label | n/a (diagnostic) | Same as earlier relationship diagnostics | [60](#cell-60) |
-| Largest disagreements, four NLI variants | v1, v2, v1_prefix, v2_prefix entailment scores vs. LLM label and Kennedy score | n/a (diagnostic) | Side-by-side disagreement ranking | [61](#cell-61) |
-| Feature importance, four NLI variants | NLI plus codes (All), each of the four NLI variants | Continuous | Ridge coefficient extraction | [62](#cell-62) |
-| Residual overlap, four NLI variants | v1, v1_prefix, v2, v2_prefix predictions | Continuous | Per-comment residual comparison across variants | [63](#cell-63) |
-| Reranker score distributions | bge, qwen relevance scores (raw and recovered logit) | n/a (diagnostic) | Per-code distribution summary | [65](#cell-65) |
-| Full ablation, six sources | v1, v2, v1_prefix, v2_prefix, qwen, bge, alone and combined, all definitions | Continuous, Ordinal, Binary | Same model set as earlier NLI ablations, selective feature scaling | [66](#cell-66), [67](#cell-67) |
-| Pairwise synergy scan | Every single source and pair among codes, v1, v2, v1_prefix, v2_prefix, qwen, bge, raw, pca | Continuous | Ridge, absolute performance and synergy-over-best-single comparison | [68](#cell-68) |
-| LLM label vs. reranker relationship | bge, qwen relevance score (logit) vs. LLM ordinal label | n/a (diagnostic) | OLS, Spearman correlation, high-relevance proportion by label | [69](#cell-69) |
+| Codes only | Code scale, per definition and code subset | Ordinal | Ordinal Logit, Multinomial, OvR, OvO, XGBoost-threshold; multinomial coefficient extraction; permutation control | [37](#cell-37), [38](#cell-38), [39](#cell-39) |
+| Codes and embeddings | Code scale + PCA/raw embeddings, per definition and code subset | Ordinal | Same ordinal model set as Codes Only | [41](#cell-41) |
+| NLI ablation, v1 | NLI (v1) alone, plus embeddings, plus codes, plus codes+embeddings, all definitions | Continuous, Ordinal, Binary | Ridge, Ordinal Logit, Multinomial, OvR, OvO, Logistic Regression | [43](#cell-43) |
+| LLM label vs. NLI relationship, v1 | NLI (v1) entailment score vs. LLM ordinal label | n/a (diagnostic) | OLS, Spearman correlation, high-entailment proportion by label | [44](#cell-44) |
+| LLM vs. NLI disagreement, v1 | Pooled LLM labels and NLI (v1) scores | n/a (diagnostic) | Type 1/Type 2 disagreement flagging | [46](#cell-46) |
+| NLI ablation, v2 | Same structure as v1 ablation, NLI (v2) | Continuous, Ordinal, Binary | Same model set as v1 ablation | [48](#cell-48) |
+| LLM label vs. NLI relationship, v2 | NLI (v2) entailment score vs. LLM ordinal label | n/a (diagnostic) | Same as v1 relationship diagnostic | [49](#cell-49) |
+| LLM vs. NLI disagreement, v2 | Pooled LLM labels and NLI (v2) scores | n/a (diagnostic) | Same as v1 disagreement analysis | [50](#cell-50) |
+| Multicollinearity, v1 vs. v2 | NLI (v1, v2) entailment scores, codes, raw embeddings | n/a (diagnostic) | Fast VIF via correlation matrix inversion | [52](#cell-52) |
+| Per-code disagreement, v1 and v2 | LLM label vs. NLI entailment, per code | n/a (diagnostic) | Spearman correlation per code, hypothesis text inspection | [53](#cell-53), [54](#cell-54), [55](#cell-55) |
+| NLI ablation, hypothesis-fixed | NLI (v1_prefix, v2_prefix) alone, plus embeddings, plus codes, plus codes+embeddings | Continuous, Ordinal, Binary | Same model set as earlier NLI ablations | [57](#cell-57) |
+| LLM label vs. NLI relationship, hypothesis-fixed | NLI (v1_prefix, v2_prefix) entailment vs. LLM ordinal label | n/a (diagnostic) | Same as earlier relationship diagnostics | [58](#cell-58) |
+| Largest disagreements, four NLI variants | v1, v2, v1_prefix, v2_prefix entailment scores vs. LLM label and Kennedy score | n/a (diagnostic) | Side-by-side disagreement ranking | [59](#cell-59) |
+| Feature importance, four NLI variants | NLI plus codes (All), each of the four NLI variants | Continuous | Ridge coefficient extraction | [60](#cell-60) |
+| Residual overlap, four NLI variants | v1, v1_prefix, v2, v2_prefix predictions | Continuous | Per-comment residual comparison across variants | [61](#cell-61) |
+| Reranker score distributions | bge, qwen relevance scores (raw and recovered logit) | n/a (diagnostic) | Per-code distribution summary | [63](#cell-63) |
+| Full ablation, six sources | v1, v2, v1_prefix, v2_prefix, qwen, bge, alone and combined, all definitions | Continuous, Ordinal, Binary | Same model set as earlier NLI ablations, selective feature scaling | [64](#cell-64), [65](#cell-65) |
+| Pairwise synergy scan | Every single source and pair among codes, v1, v2, v1_prefix, v2_prefix, qwen, bge, raw, pca | Continuous | Ridge, absolute performance and synergy-over-best-single comparison | [66](#cell-66) |
+| LLM label vs. reranker relationship | bge, qwen relevance score (logit) vs. LLM ordinal label | n/a (diagnostic) | OLS, Spearman correlation, high-relevance proportion by label | [67](#cell-67) |
 
 ---
 
@@ -140,78 +140,74 @@ Every analysis and ablation stage in the notebook, in order of appearance, with 
 
 <a id="cell-35"></a>`Cell 35 (code)`: Defines `concept_map` (manual grouping of codes across IHRA/Nexus/JDA into shared underlying concepts, e.g. "Collective blame"), used by Cells 11 and 12 and elsewhere.
 
-<a id="cell-36"></a>`Cell 36 (code)`: Empty cell.
-
-<a id="cell-37"></a>`Cell 37 (code)`: Empty cell.
-
 ---
 
 ## Codes Only
 
-<a id="cell-39"></a>`Cell 39 (code)`: Code-features-only (no embeddings) ablation for the ordinal target, per definition and code subset.
+<a id="cell-37"></a>`Cell 37 (code)`: Code-features-only (no embeddings) ablation for the ordinal target, per definition and code subset.
 
-<a id="cell-40"></a>`Cell 40 (code)`: Extracts per-class coefficients from the multinomial logistic model, per code, across folds (feature importance/interpretation).
+<a id="cell-38"></a>`Cell 38 (code)`: Extracts per-class coefficients from the multinomial logistic model, per code, across folds (feature importance/interpretation).
 
-<a id="cell-41"></a>`Cell 41 (code)`: Permutation control test: shuffles code labels, reruns the same model, checks whether performance collapses (validity check on the codes-only signal).
+<a id="cell-39"></a>`Cell 39 (code)`: Permutation control test: shuffles code labels, reruns the same model, checks whether performance collapses (validity check on the codes-only signal).
 
 ---
 
 ## Codes and Embeddings
 
-<a id="cell-43"></a>`Cell 43 (code)`: Code features plus embeddings (PCA vs. raw) combined ablation for the ordinal target, per definition and code subset.
+<a id="cell-41"></a>`Cell 41 (code)`: Code features plus embeddings (PCA vs. raw) combined ablation for the ordinal target, per definition and code subset.
 
 ---
 
 ## NLI Analysis
 
-<a id="cell-44"></a>`Cell 44 (markdown)`: Notes that NLI scoring itself happens in the separate `nli.ipynb` (Colab).
+<a id="cell-42"></a>`Cell 42 (markdown)`: Notes that NLI scoring itself happens in the separate `nli.ipynb` (Colab).
 
-<a id="cell-45"></a>`Cell 45 (code)`: Full NLI ablation (v1): NLI alone, NLI plus embeddings, NLI plus codes, NLI plus codes plus embeddings, across all definitions and all three target types (continuous/ordinal/binary), ordinal comparing OvR/OvO/multinomial/ordinal-logit.
+<a id="cell-43"></a>`Cell 43 (code)`: Full NLI ablation (v1): NLI alone, NLI plus embeddings, NLI plus codes, NLI plus codes plus embeddings, across all definitions and all three target types (continuous/ordinal/binary), ordinal comparing OvR/OvO/multinomial/ordinal-logit.
 
-<a id="cell-46"></a>`Cell 46 (code)`: Relationship diagnostic (v1): LLM ordinal label vs. NLI entailment score, comparative full codebook vs. MIN_SUPPORT-filtered codebook (OLS/Spearman/high-entailment breakdown).
+<a id="cell-44"></a>`Cell 44 (code)`: Relationship diagnostic (v1): LLM ordinal label vs. NLI entailment score, comparative full codebook vs. MIN_SUPPORT-filtered codebook (OLS/Spearman/high-entailment breakdown).
 
-<a id="cell-47"></a>`Cell 47 (code)`: Parses the original `config.py` codebook blocks (`I_1` through `J_NO_1`) into the `codebook` dict via regex (the original, pre-fix hypothesis parser).
+<a id="cell-45"></a>`Cell 45 (code)`: Parses the original `config.py` codebook blocks (`I_1` through `J_NO_1`) into the `codebook` dict via regex (the original, pre-fix hypothesis parser).
 
-<a id="cell-48"></a>`Cell 48 (code)`: LLM-vs-NLI (v1) disagreement analysis: builds pooled ordinal labels, flags Type 1/Type 2 disagreement cases.
+<a id="cell-46"></a>`Cell 46 (code)`: LLM-vs-NLI (v1) disagreement analysis: builds pooled ordinal labels, flags Type 1/Type 2 disagreement cases.
 
 ### V2 NLI Zero-shot
 
-<a id="cell-50"></a>`Cell 50 (code)`: Same full NLI ablation structure as Cell 45, run for v2 (DeBERTa-v3-large) instead of v1.
+<a id="cell-48"></a>`Cell 48 (code)`: Same full NLI ablation structure as Cell 43, run for v2 (DeBERTa-v3-large) instead of v1.
 
-<a id="cell-51"></a>`Cell 51 (code)`: Same relationship diagnostic as Cell 46, run for v2.
+<a id="cell-49"></a>`Cell 49 (code)`: Same relationship diagnostic as Cell 44, run for v2.
 
-<a id="cell-52"></a>`Cell 52 (code)`: LLM-vs-NLI (v2) disagreement analysis, same structure as Cell 48.
+<a id="cell-50"></a>`Cell 50 (code)`: LLM-vs-NLI (v2) disagreement analysis, same structure as Cell 46.
 
 ### Meta-Analysis
 
-<a id="cell-54"></a>`Cell 54 (code)`: Multicollinearity check comparing v1 vs. v2 entailment scores against codes and raw embeddings, using the fast VIF-via-correlation-matrix-inversion method.
+<a id="cell-52"></a>`Cell 52 (code)`: Multicollinearity check comparing v1 vs. v2 entailment scores against codes and raw embeddings, using the fast VIF-via-correlation-matrix-inversion method.
 
-<a id="cell-55"></a>`Cell 55 (code)`: Per-code disagreement between LLM label and NLI entailment score, v1 and v2 side by side; flags codes where entailment doesn't track the LLM's own label and prints the actual hypothesis text used (the diagnostic that surfaced the E13/carve-out hypothesis bugs).
+<a id="cell-53"></a>`Cell 53 (code)`: Per-code disagreement between LLM label and NLI entailment score, v1 and v2 side by side; flags codes where entailment doesn't track the LLM's own label and prints the actual hypothesis text used (the diagnostic that surfaced the E13/carve-out hypothesis bugs).
 
-<a id="cell-56"></a>`Cell 56 (code)`: Support-count check (label value counts) restricted to the `consistent_failures` codes flagged by Cell 55.
+<a id="cell-54"></a>`Cell 54 (code)`: Support-count check (label value counts) restricted to the `consistent_failures` codes flagged by Cell 53.
 
-<a id="cell-57"></a>`Cell 57 (code)`: Full text printout for the E12/E13 criminal-act code cluster: every non-N LLM label, and every LLM/NLI disagreement case, v1 and v2, with actual comment text.
+<a id="cell-55"></a>`Cell 55 (code)`: Full text printout for the E12/E13 criminal-act code cluster: every non-N LLM label, and every LLM/NLI disagreement case, v1 and v2, with actual comment text.
 
 ### Hypothesis Prefix
 
-<a id="cell-59"></a>`Cell 59 (code)`: Full NLI ablation (same structure as Cell 45/50) run for both `v1_prefix` and `v2_prefix` (the hypothesis-fix versions), per fold.
+<a id="cell-57"></a>`Cell 57 (code)`: Full NLI ablation (same structure as Cell 43/48) run for both `v1_prefix` and `v2_prefix` (the hypothesis-fix versions), per fold.
 
-<a id="cell-60"></a>`Cell 60 (code)`: Same relationship diagnostic as Cell 46/51, run comparatively for `v1_prefix` and `v2_prefix`.
+<a id="cell-58"></a>`Cell 58 (code)`: Same relationship diagnostic as Cell 44/49, run comparatively for `v1_prefix` and `v2_prefix`.
 
-<a id="cell-61"></a>`Cell 61 (code)`: Prints the largest LLM-vs-NLI disagreements across all four NLI variants (v1/v2/v1_prefix/v2_prefix) side by side, alongside the Kennedy continuous and ordinal target values for the same comments.
+<a id="cell-59"></a>`Cell 59 (code)`: Prints the largest LLM-vs-NLI disagreements across all four NLI variants (v1/v2/v1_prefix/v2_prefix) side by side, alongside the Kennedy continuous and ordinal target values for the same comments.
 
-<a id="cell-62"></a>`Cell 62 (code)`: Ridge coefficient feature-importance printout for `nli_plus_codes_All`, across all four NLI variants.
+<a id="cell-60"></a>`Cell 60 (code)`: Ridge coefficient feature-importance printout for `nli_plus_codes_All`, across all four NLI variants.
 
-<a id="cell-63"></a>`Cell 63 (code)`: Per-comment residual overlap analysis: checks whether v1/v1_prefix/v2/v2_prefix miss on the same comments (shared blind spot) or different ones (genuine complementarity).
+<a id="cell-61"></a>`Cell 61 (code)`: Per-comment residual overlap analysis: checks whether v1/v1_prefix/v2/v2_prefix miss on the same comments (shared blind spot) or different ones (genuine complementarity), plus a breakdown of which codes are flagged within each hard-comment group.
 
 ### Rerankers
 
-<a id="cell-65"></a>`Cell 65 (code)`: Loads reranker score files (bge, qwen), computes and appends the recovered raw logit column (`sigmoid_to_logit`) if not already present, prints per-code score distributions.
+<a id="cell-63"></a>`Cell 63 (code)`: Loads reranker score files (bge, qwen), computes and appends the recovered raw logit column (`sigmoid_to_logit`) if not already present, prints per-code score distributions.
 
-<a id="cell-66"></a>`Cell 66 (code)`: Full ablation across all six sources (v1, v2, v1_prefix, v2_prefix, qwen, bge), per fold, parallelized via `joblib`, with selective feature scaling (logits/embeddings scaled, codes/entailment scores not).
+<a id="cell-64"></a>`Cell 64 (code)`: Full ablation across all six sources (v1, v2, v1_prefix, v2_prefix, qwen, bge), per fold, parallelized via `joblib`, with selective feature scaling (logits/embeddings scaled, codes/entailment scores not).
 
-<a id="cell-67"></a>`Cell 67 (code)`: Summary table: best/worst `feature_set` per target type, and best/worst ordinal model overall, from the Cell 66 results.
+<a id="cell-65"></a>`Cell 65 (code)`: Summary table: best/worst `feature_set` per target type, and best/worst ordinal model overall, from the Cell 64 results.
 
-<a id="cell-68"></a>`Cell 68 (code)`: Pairwise synergy scan: every single source and every pair (excluding invalid v1+v1_prefix and v2+v2_prefix combinations), definition="All" only, parallelized; reports absolute performance (`r2_pair`) and synergy gain over the best individual source.
+<a id="cell-66"></a>`Cell 66 (code)`: Pairwise synergy scan: every single source and every pair (excluding invalid v1+v1_prefix and v2+v2_prefix combinations), definition="All" only, parallelized; reports absolute performance (`r2_pair`) and synergy gain over the best individual source.
 
-<a id="cell-69"></a>`Cell 69 (code)`: Relationship diagnostic (reranker version of Cell 46/51/60): LLM ordinal label vs. reranker relevance score (logit), comparative full codebook vs. MIN_SUPPORT-filtered codebook, for both bge and qwen, with minty-green ECDF/violin plots.
+<a id="cell-67"></a>`Cell 67 (code)`: Relationship diagnostic (reranker version of Cell 44/49/58): LLM ordinal label vs. reranker relevance score (logit), comparative full codebook vs. MIN_SUPPORT-filtered codebook, for both bge and qwen, with minty-green ECDF/violin plots.
