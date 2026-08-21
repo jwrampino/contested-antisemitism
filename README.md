@@ -5,7 +5,7 @@ Detecting Antisemitism: Multi-Aspect Operationalization of a Contested Concept v
 |---|---|
 | [Proposal Draft](https://www.overleaf.com/read/hyxgchsjpvwz#91c7ce) | |
 | [Abstract](#abstract) |
-| [Methodology](#methodology) | [Pilot](#pilot) · [Codebook](#codebook) |
+| [Methodology](#methodology) | [Pilot](#pilot) · [Pilot Codebook](#pilot-codebook) · [Data Collection](#data-collection) |
 | [Repository Structure](#repository-structure) |
 | [Instructions](#instructions) | |
 | [Results](#results) |
@@ -16,9 +16,9 @@ Detecting Antisemitism: Multi-Aspect Operationalization of a Contested Concept v
 
 ## Methodology
 
-### [Codebook](https://github.com/jwrampino/contested-antisemitism/blob/main/CODEBOOK.md)
+### [Pilot Codebook](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/PILOT_CODEBOOK.md)
 
-### [Pilot](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/PILOT.md)
+### [Pilot](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/PILOT_MODELS.md)
 
 ### [Data Collection](https://github.com/jwrampino/contested-antisemitism/blob/main/collection/)
 
@@ -43,21 +43,24 @@ contested-antisemitism/
 │   │   ├── results/                                # Labels by batch
 │   │   └── batch_index.json                        # API query index
 │   ├── data/
-│   │   ├── ucberkeley-dlab_target_jewish.csv       # Pilot dataset
-│   │   ├── nli_zeroshot_scores.csv                 # Pilot NLI scores
-│   │   ├── 
-│   │   ├── 
+│   │   └── ucberkeley-dlab_target_jewish.csv       # Pilot dataset
 │   ├── features/                                 # Features for all pilot models
-│   │   ├── pca/
-│   │   ├── raw_scaled/
-│   │   ├── code_features.csv
-│   │   ├── embeddings.csv
+│   │   ├── pca/                                   
+│   │   ├── raw_scaled/  
+│   │   ├── embeddings.csv                          
+│   │   ├── code_features.csv                      # LLM labels OHE
+│   │   ├── nli_zeroshot_scores.csv                # NLI v1 model scores
+│   │   ├── nli_zeroshot_scores_v2.csv             # NLI v2 model scores
+│   │   ├── nli_zeroshot_scores_v1_prefix.csv      # v1 using corrected hypotheses
+│   │   ├── nli_zeroshot_scores_v2_prefix.csv      # v2 using corrected hypotheses
+│   │   ├── reranker_scores_bge.csv
+│   │   ├── reranker_scores_qwen.csv
 │   │   └── targets_and_folds.csv
 │   ├── test/                                     # Intra and inter-LLM agreement
 │   ├── viz/
 │   ├── config.py                                 # Batch instructions for LLMs
-│   ├── nli_config.py                             # Hypotheses for NLI (_prefix)
 │   ├── label.ipynb                               # LLM batch labeling
+│   ├── nli_config.py                             # Hypotheses for NLI (_prefix)
 │   ├── nli.ipynb                                 # NLI scoring colab
 │   ├── reranker.ipynb                            # Reranker test colab
 │   ├── models.ipynb                              # Pilot analysis and ablation study
