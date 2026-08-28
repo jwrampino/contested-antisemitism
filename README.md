@@ -16,9 +16,9 @@ Detecting Antisemitism: Multi-Aspect Operationalization of a Contested Concept v
 
 ## Methodology
 
-### [Pilot Codebook](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/PILOT_CODEBOOK.md)
-
 ### [Pilot](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/PILOT_MODELS.md)
+
+### [Pilot Codebook](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/PILOT_CODEBOOK.md)
 
 ### [Data Collection](https://github.com/jwrampino/contested-antisemitism/blob/main/collection/)
 
@@ -38,6 +38,8 @@ contested-antisemitism/
 │   ├── openmeasures.ipynb                        # Open Measures collection script 
 │   ├── query.py                                  # Open Measures query config
 │   └── reddit.ipynb                              # Reddit collection script (WiP)
+├── human_annotation/                           # Front and backend
+│   └── sampling.ipynb                            # Data sampling for serving
 ├── pilot/                                      # Pilot scripts
 │   ├── batches/                                  # LLM batch label results
 │   │   ├── results/                                # Labels by batch
