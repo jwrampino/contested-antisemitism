@@ -3,3 +3,4 @@
 *.html
 __pycache__/
 collection/data/
+human_annotation/samples/
