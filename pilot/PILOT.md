@@ -1,6 +1,124 @@
-# `models.ipynb` Cell Map
+# Pilot
 
-## Table of Contents
+| File | Purpose | Sections |
+|---|---|---|
+| [README.md](https://github.com/jwrampino/contested-antisemitism/blob/main/README.md) |
+| [PILOT_CODEBOOK.md](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/PILOT_CODEBOOK.md) | Initial codebook for pilot configs | |
+| [config.py](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/config.py) | Batch instructions for LLMs | |
+| [label.ipynb](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/label.ipynb) | LLM batch labeling | [Table of Contents](#labelipynb-table-of-contents) |
+| [nli_config.py](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/nli_config.py) | Hypotheses for NLI | |
+| [nli.ipynb](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/nli.ipynb) | NLI scoring colab | [Table of Contents](#nliipynb-table-of-contents) |
+| [reranker.ipynb](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/reranker.ipynb) | Reranker test colab | [Cell Map](#rerankeripynb-cell-map) |
+| [models.ipynb](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/models.ipynb) | Pilot analysis and ablation study | [Table of Contents](#modelsipynb-table-of-contents) · [Analysis Overview](#modelsipynb-analysis-and-ablation-overview) |
+
+## `label.ipynb` Table of Contents
+- [Data Preparation](#label-data-preparation): loads the Measuring Hate Speech dataset, filters to the Jewish-targeted subset, saves it locally
+- [Pilot Codebook Labeling](#pilot-codebook-labeling): sets up the Anthropic client and codebook imports for LLM annotation, runs the intra-model reliability tests
+  - [Comparing Sonnet to GPT-4o](#comparing-sonnet-to-gpt-4o): sets up both API clients and draws the random comparison sample
+- [Full Label](#full-label): builds and submits the actual labeling batches across the full pilot corpus
+  - [Handle Missingness](#handle-missingness): recovers comments that failed or were refused during the main labeling pass
+  - [Check Label Distribution of Full Dataset](#check-label-distribution-of-full-dataset): combines all labeled blocks, tests whether the refused subset differs systematically from the rest, including a YES-code/NO-code breakdown with its own control
+
+## Data Preparation
+
+<a id="label-cell-0"></a>`Cell 0 (code)`: Imports (`pathlib`, `numpy`, `pandas`, `datasets`, `huggingface_hub`).
+
+<a id="label-cell-1"></a>`Cell 1 (code)`: Loads the Measuring Hate Speech dataset from Hugging Face into a DataFrame, prints summary statistics.
+
+<a id="label-cell-2"></a>`Cell 2 (code)`: Filters to comments where `target_religion_jewish` is True, keeps `comment_id`/`text`/`hate_speech_score`, drops duplicate comment IDs.
+
+<a id="label-cell-3"></a>`Cell 3 (code)`: Saves the Jewish-targeted subset to `data/ucberkeley-dlab_target_jewish.csv`, prints `hate_speech_score` summary statistics.
+
+## Pilot Codebook Labeling
+
+<a id="label-cell-5"></a>`Cell 5 (code)`: Sets up the Anthropic client and imports the codebook blocks (`UNIVERSAL`, `INPUT`, and all `I_`/`N_`/`J_` blocks) from `config.py`.
+
+<a id="label-cell-6"></a>`Cell 6 (code)`: Sanity-check reliability test: runs Sonnet three times on the same 8-comment sample across all codebook blocks, to check intra-model consistency before the full labeling run.
+
+<a id="label-cell-7"></a>`Cell 7 (code)`: Pivots the 3-run comparison results wide by run, prints the full side-by-side label table.
+
+<a id="label-cell-8"></a>`Cell 8 (code)`: Computes intra-model agreement percentage (all three runs matching) across the comparison set.
+
+<a id="label-cell-9"></a>`Cell 9 (code)`: Classifies Sonnet's run-to-run disagreements as adjacent-category or cross-bucket, based on the four-label adjacency structure (N-A, A-I, I-E).
+
+### Comparing Sonnet to GPT-4o
+
+<a id="label-cell-11"></a>`Cell 11 (code)`: Sets up both the Anthropic and OpenAI clients, draws a random 20-comment sample (seed 42) for the model-comparison reliability test.
+
+## Full Label
+
+<a id="label-cell-13"></a>`Cell 13 (code)`: Builds the labeling batches for the full pilot corpus using Sonnet, one batch per codebook block, and submits them.
+
+<a id="label-cell-14"></a>`Cell 14 (code)`: Checks batch completion status, saves each completed block's results to its own CSV under `batches/results/`.
+
+### Handle Missingness
+
+<a id="label-cell-16"></a>`Cell 16 (code)`: Submits recovery batches for rows that failed with `API_ERROR`, resubmitted per block using Sonnet.
+
+<a id="label-cell-17"></a>`Cell 17 (code)`: Checks recovery batch status, merges successfully recovered rows back into the original block result CSVs.
+
+<a id="label-cell-18"></a>`Cell 18 (code)`: Synchronous, cached recovery pass using GPT-4o for rows still missing after the Sonnet-based recovery attempts, block by block.
+
+### Check Label Distribution of Full Dataset
+
+<a id="label-cell-20"></a>`Cell 20 (code)`: Combines all labeled block CSVs (excluding error rows) into one dataset, prints the overall label distribution.
+
+<a id="label-cell-21"></a>`Cell 21 (code)`: Two-proportion z-test comparing label rates between Sonnet's bulk labels and the GPT-4o-recovered subset, testing whether the refused comments are systematically more extreme.
+
+<a id="label-cell-22"></a>`Cell 22 (code)`: Same comparison as Cell 21, split by whether the code is a YES-code (affirmative antisemitism codes) or a NO-code (carve-out codes from the `I_NO_1`/`N_NO_1`/`J_NO_1` blocks), to check whether the refusal-subset effect is specific to codes that actually assess antisemitic content.
+
+<a id="label-cell-23"></a>`Cell 23 (code)`: Control version of Cell 22, same YES-code/NO-code split, run on the unrelated 20-comment reliability sample instead of the refusal-comparison data, to isolate baseline model-level differences from content effects for each code type.
+
+<a id="label-cell-24"></a>`Cell 24 (code)`: Extended version of Cell 21's z-test, adding the separate model-bias control comparison against the intermodel reliability sample, with standard errors, confidence intervals, and Cohen's h.
+
+<a id="label-cell-25"></a>`Cell 25 (code)`: Aggregates label counts by definition, code, and label source (Sonnet vs. GPT-4o), building the by-model/by-definition summary table.
+
+## `nli.ipynb` Table of Contents
+- [Setup and V1 Scoring](#nli-setup-and-v1-scoring): mounts Google Drive, parses the codebook from `config.py`, loads the base DeBERTa zero-shot model, and scores the full pilot corpus against every code (v1)
+- [V2](#v2): loads the larger DeBERTa zero-shot model and scores the full pilot corpus against every code (v2)
+- [Hypothesis Fix](#hypothesis-fix): introduces `nli_config.py` with grammatically corrected standalone hypotheses, then rescores the full corpus with both v1 and v2 under the corrected hypotheses
+
+## Setup and V1 Scoring
+
+<a id="nli-cell-1"></a>`Cell 1 (code)`: Mounts Google Drive and sets the working directory to the shared `nli` folder.
+
+<a id="nli-cell-2"></a>`Cell 2 (code)`: Parses the codebook blocks from `config.py` via regex into a `codebook` dict mapping each code ID to its definition text.
+
+<a id="nli-cell-3"></a>`Cell 3 (code)`: Loads the Jewish-targeted pilot subset and the code features CSV, prints their shapes.
+
+<a id="nli-cell-4"></a>`Cell 4 (code)`: Loads the base zero-shot NLI pipeline (`MoritzLaurer/deberta-v3-base-zeroshot-v1`) onto GPU.
+
+<a id="nli-cell-5"></a>`Cell 5 (code)`: Scores a 5-comment sample against one code's definition using the `"This text expresses: {}."` hypothesis template, prints each result.
+
+<a id="nli-cell-6"></a>`Cell 6 (code)`: Scores the full pilot corpus against every code using the v1 model, saving results to `nli_zeroshot_scores.csv`, resumable by skipping codes already completed.
+
+## V2
+
+<a id="nli-cell-8"></a>`Cell 8 (code)`: Loads the larger zero-shot NLI pipeline (`MoritzLaurer/deberta-v3-large-zeroshot-v2.0`) onto GPU.
+
+<a id="nli-cell-9"></a>`Cell 9 (code)`: Same test as Cell 5, run against the v2 model.
+
+<a id="nli-cell-10"></a>`Cell 10 (code)`: Scores the full pilot corpus against every code using the v2 model, saving results to `nli_zeroshot_scores_v2.csv`, resumable and tracking partially-completed codes separately from fully-completed ones.
+
+## Hypothesis Fix
+
+<a id="nli-cell-12"></a>`Cell 12 (code)`: Loads `CODE_HYPOTHESES` from the new `nli_config.py`, building a `codebook` dict from the corrected, grammatically complete hypotheses, each tagged with which of two exemplar templates it uses.
+
+<a id="nli-cell-13"></a>`Cell 13 (code)`: Scores a sample against one code using both v1 and v2 models under the corrected hypothesis template, alongside the LLM's own label for the same comment.
+
+<a id="nli-cell-14"></a>`Cell 14 (code)`: Scores the full pilot corpus against every code using both v1 and v2 models under the corrected hypotheses, saving results to `nli_zeroshot_scores_v1_prefix.csv` and `nli_zeroshot_scores_v2_prefix.csv`, resumable per model.
+
+## `reranker.ipynb` Cell Map
+
+<a id="reranker-cell-0"></a>`Cell 0 (code)`: Mounts Google Drive and sets the working directory to the shared `nli` folder.
+
+<a id="reranker-cell-1"></a>`Cell 1 (code)`: Checks whether bge scoring is already complete by counting scored codes in `reranker_scores_bge.csv`; if not, conditionally installs the exact package versions `FlagEmbedding` requires.
+
+<a id="reranker-cell-2"></a>`Cell 2 (code)`: Loads whichever reranker still needs scoring, `bge-reranker-large` if bge isn't complete, otherwise `Qwen3-Reranker-0.6B`, and loads the pilot corpus.
+
+<a id="reranker-cell-3"></a>`Cell 3 (code)`: Scores the full pilot corpus against every code using whichever reranker model(s) are currently loaded in the namespace, saving results to `reranker_scores_bge.csv` and/or `reranker_scores_qwen.csv`, resumable per model.
+
+## `models.ipynb` Table of Contents
 - [Setup](#setup): loads every base file (targets, folds, embeddings, code features, NLI scores) and defines every shared helper function used by every later section
 - [Create Features](#create-features): builds the base files Setup loads, one-hot encodes LLM labels, creates the stratified fold split, embeds all comment text
 - [PCA by Fold](#pca-by-fold): reduces the sentence embeddings to fewer components, fit separately per fold to avoid leakage
@@ -18,9 +136,7 @@
 - [NLI Hypothesis Prefix](#hypothesis-prefix): reruns the ablation and diagnostics using the corrected hypothesis versions, plus cross-variant comparisons
 - [Rerankers](#rerankers): tests bge and qwen relevance scores as an alternative to NLI, including the full six-source ablation and synergy scan
 
----
-
-## Analysis and Ablation Overview
+## `models.ipynb` Analysis and Ablation Overview
 
 Every analysis and ablation stage in the notebook, in order of appearance, with the feature sets, target(s), and models compared in each.
 
@@ -57,31 +173,21 @@ Every analysis and ablation stage in the notebook, in order of appearance, with 
 | Pairwise synergy scan | Every single source and pair among codes, v1, v2, v1_prefix, v2_prefix, qwen, bge, raw, pca | Continuous | Ridge, absolute performance and synergy-over-best-single comparison | [72](#cell-72) |
 | LLM label vs. reranker relationship | bge, qwen relevance score (logit) vs. LLM ordinal label | n/a (diagnostic) | OLS, Spearman correlation, high-relevance proportion by label | [73](#cell-73) |
 
----
-
 ## Setup
 
-<a id="cell-1"></a>`Cell 1 (code)`: Master setup cell: loads targets/folds, defines `ordinal_bin`, builds fold-getter helpers, loads embeddings and PCA/raw feature-loaders, sets `LOGREG_C`/`XGB_PARAMS`, loads and filters code features by `MIN_SUPPORT`, builds `code_block_map`/`definition_prefix_map`, defines `get_code_columns` and `code_cols_for_definition`, loads NLI scores and pivots to wide format. Everything downstream depends on this cell.
-
----
+<a id="cell-1"></a>`Cell 1 (code)`: Loads targets and folds, defines `ordinal_bin` for binning the continuous score into supportive/neutral/hate, builds fold-getter helpers (`get_ids`), loads embeddings and PCA/raw feature-loaders (`get_pca_features`, `get_raw_features`), sets `LOGREG_C`/`XGB_PARAMS`, loads and filters code features by `MIN_SUPPORT`, builds `code_block_map`/`definition_prefix_map`, defines `get_code_columns` and `code_cols_for_definition`, loads NLI scores and pivots to wide format, and defines `concept_map`.
 
 ## Create Features
 
 <a id="cell-3"></a>`Cell 3 (code)`: Builds the full feature/target pipeline from raw sources: one-hot encodes LLM labels into `code_features.csv`, creates stratified 5-fold assignment by ordinal bin, embeds all comment text via `all-MiniLM-L6-v2` into `embeddings.csv`, saves `targets_and_folds.csv`. This is the cell that generates the base files `Cell 1` later loads.
 
----
-
 ## PCA by Fold
 
 <a id="cell-5"></a>`Cell 5 (code)`: Selects PCA component count via scree analysis (90% variance threshold), fits/transforms PCA separately per fold (leakage-safe), saves per-fold train/test PCA CSVs to `features/pca/`.
 
----
-
 ## Load Targets
 
 <a id="cell-7"></a>`Cell 7 (code)`: Builds three separate target Series from `judaism`: continuous (`hate_speech_score`), ordinal (mapped supportive/neutral/hate to 0/1/2), and binary (`>0.5` threshold).
-
----
 
 ## Data Shape (EDA)
 
@@ -99,15 +205,11 @@ Every analysis and ablation stage in the notebook, in order of appearance, with 
 
 <a id="cell-15"></a>`Cell 15 (code)`: KDE comparison plot of `hate_speech_score` distribution, full Measuring Hate Speech corpus vs. the Jewish-targeted pilot subset, with supportive/neutral/hate threshold lines.
 
----
-
 ## Sanity Check
 
 <a id="cell-17"></a>`Cell 17 (code)`: Sanity-check binary classification stage using XGBoost: all definitions, YES+NO codes, code-scale plus PCA embeddings, predicting binary target. Includes grid search, SHAP importance, per-fold ROC tracking.
 
 <a id="cell-18"></a>`Cell 18 (code)`: Same sanity-check stage as Cell 17, but with Logistic Regression instead of XGBoost.
-
----
 
 ## Embedding Only
 
@@ -118,8 +220,6 @@ Every analysis and ablation stage in the notebook, in order of appearance, with 
 <a id="cell-22"></a>`Cell 22 (code)`: Embeddings-only baseline, ordinal target: PCA vs. raw embeddings, comparing ordinal logit, multinomial, OvR, OvO, and XGBoost (regression-threshold).
 
 <a id="cell-23"></a>`Cell 23 (code)`: Embeddings-only baseline, continuous target: PCA vs. raw embeddings, tuned Ridge vs. XGBoost Regressor.
-
----
 
 ## Internal Construct
 
@@ -132,8 +232,6 @@ Every analysis and ablation stage in the notebook, in order of appearance, with 
 <a id="cell-28"></a>`Cell 28 (code)`: Internal construct validity broken down per individual response class (E/I/A separately, not pooled).
 
 <a id="cell-29"></a>`Cell 29 (code)`: Aggregates the per-class breakdown from Cell 28 by individual code and response level, prints summary table.
-
----
 
 ## Label Collinearity Check
 
@@ -157,8 +255,6 @@ Every analysis and ablation stage in the notebook, in order of appearance, with 
 
 <a id="cell-40"></a>`Cell 40 (code)`: Replaces the manual `concept_map` with continuous cosine similarity between each code pair's hypothesis-text embeddings, then reruns the batching regression as a more rigorous control.
 
----
-
 ## Codes Only
 
 <a id="cell-42"></a>`Cell 42 (code)`: Code-features-only (no embeddings) ablation for the ordinal target, per definition and code subset.
@@ -167,13 +263,9 @@ Every analysis and ablation stage in the notebook, in order of appearance, with 
 
 <a id="cell-44"></a>`Cell 44 (code)`: Permutation control test: shuffles code labels, reruns the same model, checks whether performance collapses (validity check on the codes-only signal).
 
----
-
 ## Codes and Embeddings
 
 <a id="cell-46"></a>`Cell 46 (code)`: Code features plus embeddings (PCA vs. raw) combined ablation for the ordinal target, per definition and code subset.
-
----
 
 ## NLI Analysis
 

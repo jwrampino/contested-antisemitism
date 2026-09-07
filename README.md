@@ -16,7 +16,7 @@ Detecting Antisemitism: Multi-Aspect Operationalization of a Contested Concept v
 
 ## Methodology
 
-### [Pilot](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/PILOT_MODELS.md)
+### [Pilot README](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/PILOT.md)
 
 ### [Pilot Codebook](https://github.com/jwrampino/contested-antisemitism/blob/main/pilot/PILOT_CODEBOOK.md)
 
@@ -67,7 +67,7 @@ contested-antisemitism/
 │   ├── reranker.ipynb                            # Reranker test colab
 │   ├── models.ipynb                              # Pilot analysis and ablation study
 │   ├── PILOT_CODEBOOK.md                         # Initial codebook for pilot configs
-│   └── PILOT_MODELS.md                           # Outlines contents of models.ipynb
+│   └── PILOT.md                                  # Outlines contents of models.ipynb
 ├── .gitignore
 ├── README.md
 └── environment.yml
