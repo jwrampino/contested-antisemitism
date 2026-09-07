@@ -48,13 +48,14 @@ Every analysis and ablation stage in the notebook, in order of appearance, with 
 | Per-code disagreement, v1 and v2 | LLM label vs. NLI entailment, per code | n/a (diagnostic) | Spearman correlation per code, hypothesis text inspection | [58](#cell-58), [59](#cell-59), [60](#cell-60) |
 | NLI ablation, hypothesis-fixed | NLI (v1_prefix, v2_prefix) alone, plus embeddings, plus codes, plus codes+embeddings | Continuous, Ordinal, Binary | Same model set as earlier NLI ablations | [62](#cell-62) |
 | LLM label vs. NLI relationship, hypothesis-fixed | NLI (v1_prefix, v2_prefix) entailment vs. LLM ordinal label | n/a (diagnostic) | Same as earlier relationship diagnostics | [63](#cell-63) |
-| Largest disagreements, four NLI variants | v1, v2, v1_prefix, v2_prefix entailment scores vs. LLM label and Kennedy score | n/a (diagnostic) | Side-by-side disagreement ranking | [64](#cell-64) |
-| Feature importance, four NLI variants | NLI plus codes (All), each of the four NLI variants | Continuous | Ridge coefficient extraction | [65](#cell-65) |
-| Residual overlap, four NLI variants | v1, v1_prefix, v2, v2_prefix predictions | Continuous | Per-comment residual comparison across variants | [66](#cell-66) |
-| Reranker score distributions | bge, qwen relevance scores (raw and recovered logit) | n/a (diagnostic) | Per-code distribution summary | [68](#cell-68) |
-| Full ablation, six sources | v1, v2, v1_prefix, v2_prefix, qwen, bge, alone and combined, all definitions | Continuous, Ordinal, Binary | Same model set as earlier NLI ablations, selective feature scaling | [69](#cell-69), [70](#cell-70) |
-| Pairwise synergy scan | Every single source and pair among codes, v1, v2, v1_prefix, v2_prefix, qwen, bge, raw, pca | Continuous | Ridge, absolute performance and synergy-over-best-single comparison | [71](#cell-71) |
-| LLM label vs. reranker relationship | bge, qwen relevance score (logit) vs. LLM ordinal label | n/a (diagnostic) | OLS, Spearman correlation, high-relevance proportion by label | [72](#cell-72) |
+| Comparative NLI visualization, four variants | v1, v2, v1_prefix, v2_prefix entailment scores vs. LLM label | n/a (diagnostic) | ECDF and violin plots, shared axes across variants | [64](#cell-64) |
+| Largest disagreements, four NLI variants | v1, v2, v1_prefix, v2_prefix entailment scores vs. LLM label and Kennedy score | n/a (diagnostic) | Side-by-side disagreement ranking | [65](#cell-65) |
+| Feature importance, four NLI variants | NLI plus codes (All), each of the four NLI variants | Continuous | Ridge coefficient extraction | [66](#cell-66) |
+| Residual overlap, four NLI variants | v1, v1_prefix, v2, v2_prefix predictions | Continuous | Per-comment residual comparison across variants | [67](#cell-67) |
+| Reranker score distributions | bge, qwen relevance scores (raw and recovered logit) | n/a (diagnostic) | Per-code distribution summary | [69](#cell-69) |
+| Full ablation, six sources | v1, v2, v1_prefix, v2_prefix, qwen, bge, alone and combined, all definitions | Continuous, Ordinal, Binary | Same model set as earlier NLI ablations, selective feature scaling | [70](#cell-70), [71](#cell-71) |
+| Pairwise synergy scan | Every single source and pair among codes, v1, v2, v1_prefix, v2_prefix, qwen, bge, raw, pca | Continuous | Ridge, absolute performance and synergy-over-best-single comparison | [72](#cell-72) |
+| LLM label vs. reranker relationship | bge, qwen relevance score (logit) vs. LLM ordinal label | n/a (diagnostic) | OLS, Spearman correlation, high-relevance proportion by label | [73](#cell-73) |
 
 ---
 
@@ -210,20 +211,22 @@ Every analysis and ablation stage in the notebook, in order of appearance, with 
 
 <a id="cell-63"></a>`Cell 63 (code)`: Same relationship diagnostic as Cell 49/54, run comparatively for `v1_prefix` and `v2_prefix`.
 
-<a id="cell-64"></a>`Cell 64 (code)`: Prints the largest LLM-vs-NLI disagreements across all four NLI variants (v1/v2/v1_prefix/v2_prefix) side by side, alongside the Kennedy continuous and ordinal target values for the same comments.
+<a id="cell-64"></a>`Cell 64 (code)`: Comparative visualization across all four NLI variants of the ECDF and violin plots of entailment score by LLM label for both the full codebook and well-supported codes only. Saves as PDFs.
 
-<a id="cell-65"></a>`Cell 65 (code)`: Ridge coefficient feature-importance printout for `nli_plus_codes_All`, across all four NLI variants.
+<a id="cell-65"></a>`Cell 65 (code)`: Prints the largest LLM-vs-NLI disagreements across all four NLI variants (v1/v2/v1_prefix/v2_prefix) side by side, alongside the Kennedy continuous and ordinal target values for the same comments.
 
-<a id="cell-66"></a>`Cell 66 (code)`: Per-comment residual overlap analysis: checks whether v1/v1_prefix/v2/v2_prefix miss on the same comments (shared blind spot) or different ones (genuine complementarity), plus a breakdown of which codes are flagged within each hard-comment group.
+<a id="cell-66"></a>`Cell 66 (code)`: Ridge coefficient feature-importance printout for `nli_plus_codes_All`, across all four NLI variants.
+
+<a id="cell-67"></a>`Cell 67 (code)`: Per-comment residual overlap analysis: checks whether v1/v1_prefix/v2/v2_prefix miss on the same comments (shared blind spot) or different ones (genuine complementarity), plus a breakdown of which codes are flagged within each hard-comment group.
 
 ### Rerankers
 
-<a id="cell-68"></a>`Cell 68 (code)`: Loads reranker score files (bge, qwen), computes and appends the recovered raw logit column (`sigmoid_to_logit`) if not already present, prints per-code score distributions.
+<a id="cell-69"></a>`Cell 69 (code)`: Loads reranker score files (bge, qwen), computes and appends the recovered raw logit column (`sigmoid_to_logit`) if not already present, prints per-code score distributions.
 
-<a id="cell-69"></a>`Cell 69 (code)`: Full ablation across all six sources (v1, v2, v1_prefix, v2_prefix, qwen, bge), per fold, parallelized via `joblib`, with selective feature scaling (logits/embeddings scaled, codes/entailment scores not).
+<a id="cell-70"></a>`Cell 70 (code)`: Full ablation across all six sources (v1, v2, v1_prefix, v2_prefix, qwen, bge), per fold, parallelized via `joblib`, with selective feature scaling (logits/embeddings scaled, codes/entailment scores not).
 
-<a id="cell-70"></a>`Cell 70 (code)`: Summary table: best/worst `feature_set` per target type, and best/worst ordinal model overall, from the Cell 69 results.
+<a id="cell-71"></a>`Cell 71 (code)`: Summary table: best/worst `feature_set` per target type, and best/worst ordinal model overall, from the Cell 70 results.
 
-<a id="cell-71"></a>`Cell 71 (code)`: Pairwise synergy scan: every single source and every pair (excluding invalid v1+v1_prefix and v2+v2_prefix combinations), definition="All" only, parallelized; reports absolute performance (`r2_pair`) and synergy gain over the best individual source.
+<a id="cell-72"></a>`Cell 72 (code)`: Pairwise synergy scan: every single source and every pair (excluding invalid v1+v1_prefix and v2+v2_prefix combinations), definition="All" only, parallelized; reports absolute performance (`r2_pair`) and synergy gain over the best individual source.
 
-<a id="cell-72"></a>`Cell 72 (code)`: Relationship diagnostic (reranker version of Cell 49/54/63): LLM ordinal label vs. reranker relevance score (logit), comparative full codebook vs. MIN_SUPPORT-filtered codebook, for both bge and qwen, with ECDF/violin plots.
+<a id="cell-73"></a>`Cell 73 (code)`: Relationship diagnostic (reranker version of Cell 49/54/63): LLM ordinal label vs. reranker relevance score (logit), comparative full codebook vs. MIN_SUPPORT-filtered codebook, for both bge and qwen, with ECDF/violin plots.
